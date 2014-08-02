@@ -33,9 +33,15 @@ This means that if we want to change how a website looks, we need to only swap o
 Let's take a look at a website that does this [here](http://webremix.org/labs/lab2/demos/demo.html) or just follow along with the screen shots below.
 
 ![alt text](https://raw.githubusercontent.com/AndrewSpeed/Web-Development-Fundamentals/master/images/demo_page.jpg "http://webremix.org/labs/lab2/demos/demo.html")
-As you can see, the page has an interactive navigation bar at the top that highlights whatever is hovered over, and displays a list of items under the 'Contact' tab.
-It also has lists of links on the left that can be shrunk or expanded by clicking on the '-' or '+' buttons, this is provided by JavaScript.
+As you can see, the page has an interactive navigation bar at the top that highlights whatever is hovered over, and displays a list of items under the 'Contact' tab. 
+It also has lists of links on the left that can be shrunk or expanded by clicking on the '-' or '+' buttons, this is provided by JavaScript. 
 There is also a form for submitting data and table for displaying it.
+
+If we disable the JavaScript, we can see below that the only change is that the '-' and '+' buttons are gone from the quicklink lists, there have been other changes but they're more subtle.
+![alt text](https://raw.githubusercontent.com/AndrewSpeed/Web-Development-Fundamentals/master/images/demo_page_no_js.jpg "Javascript disabled")
+
+Finally if we disable CSS as well, we end up with a rather barebones, but still functional web page.
+![alt text](https://raw.githubusercontent.com/AndrewSpeed/Web-Development-Fundamentals/master/images/demo_page_no_css_js.jpg "CSS and Javascript disabled")
 
 
 
