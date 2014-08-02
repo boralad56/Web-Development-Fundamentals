@@ -184,5 +184,167 @@ So, breaking this up into parts, how do we mark up:
 Feel free to ask for help or ask someone's opinion. 
 __You can also go ahead and Google for a particular tag if you don't know what it is, it's usually best to search for something like 'HTML tag form input' if, for example, you were wanting to find the tag to create input for a form.__
 
-Once you think you're done, get a couple of other people to look it over, these can be the people around you!
+Once you think you're done, get a couple of other people to look it over, these can be the people around you! Discuss it and see what other people think, it's okay to disagree as long as you have a reason for why you made your decision.
 
+
+
+CSS
+----------------------------
+
+Cascading Style Sheets (CSS), as we've mentioned before, modifies the style of your page's content.
+
+###How do we get it into my web page?
+There are 3 possible options, from worst to best.
+
+1. Inline CSS (Bad, don't ever do this) - 
+  ```HTML
+  <body>
+  <h1 style="color: red;">Hello</h1>
+  <body>
+  ```
+  Using the style attribute on an element, you can change the a particular element, but you're mixing your content and style, and also means you have to do this for each element you want to style. *Even control-c, control-v gets boring after a while*
+
+2. Embedded CSS (Okay, but not great either) - 
+  ```HTML
+  <head>
+  <style type="text/css">
+    p {
+        color: red;
+    }
+  </style>
+  </head>
+  ```
+  This makes use of the `<style>` tag to affect whatever elements in your page you select inside it, for example in this example we make all paragraph elements red.
+
+3. External CSS (Good) - 
+  ```HTML
+  <head>
+  <link
+    rel="stylesheet"
+    href="my_styles.css">
+  </head>
+  ```
+  This is the best of all, it uses the `<style>` tag from before, but downloads the stylesheet (that's the one with the .css extension) and applies it to this page. This allows us to write one stylesheet to affect an entire site instead of rewriting all the CSS for each page!
+
+
+###How does it work?
+CSS has 3 parts:
+1. Selector
+2. Properties
+3. Values
+
+For example, first we __select__ the element:
+`p { }`
+
+Next we __select the properties we want to change__:
+`p { color: }`
+
+Finally, we say what __values we want these properties to have__:
+`p { color: blue; }`
+
+So we're going to make all paragraphs have blue text in this example.
+You'll notice that there's a special language, or __syntax__ used for CSS, see the diagram below for some of this.
+![alt text](https://raw.githubusercontent.com/AndrewSpeed/Web-Development-Fundamentals/master/images/css_syntax.jpg "The syntax can be tricky, so don't worry if you make mistakes.")
+
+
+
+###Selectors (thing before the curly braces)
+So now that you have a rough overview, we're going to go into a bit more depth.
+
+You select in 4 different ways:
+1. elements - select all of a particular element in the page, `p { }` selects all paragraph elements on the page.
+2. class - select any elements on the page with that class, `.help { }` selects any elements with the class named 'help'. _("." is how you specify a class name)_
+3. id - select the element with the id specified, `#about { }` selects the element with the id 'about', **remember id's should be unique, so it should only be one element selected.** _("#" is how you specify an id name)_
+4. position in the document - select the elements contained within one or more other elements.
+  ```HTML
+  <div id="about">
+    <p class="help intro"></p>
+    <p class="help"></p>
+  </div>
+  <p></p>
+
+  #about p {}  <!--Selects any p element inside an element with the id "about"-->
+  ```
+  The example above selects the first two `<p>` elements, but not the third as it's outside the `<div>` with the id "about"
+
+####Things to watch out for with id's and classes
+In CSS, if you select an element using `#help` you'll get only the element with the id "help". 
+If you select using a class `.help` you'll select all elements with the class help, including those with other classes.
+
+
+
+###Declarations (what we want to change)
+CSS defines all properties of an element that you can change (unfortunately using the American spelling), for example:
+* `font`
+* `color`
+* `background-color`
+* `border`
+
+Each property has a set of values that can be applied, examples below:
+* `font: 12px normal Verdana, sans-serif;` - sets to 12 pixels and font style
+* `color: #123;` - set as colour value matching the hexadecimal value 123
+* `background-color: red;` - set as system colour red
+* `border: 1px solid rgb(193, 193, 193);` - sets the solid border as 1 pixel thick with colour of rgb value 193, 193, 193.
+
+Properties come in a variety of granularity, meaning how much fine detail control you have over them. For example the border example above is high granularity, as you can set the color, and width of each side of a border individually, but we set all 4 at once.
+
+`border: 1px solid #000;` is the same as
+```CSS
+  border-width: 1px;
+  border-style: solid;
+  border-color: #000;
+  ```
+
+The shorthand used above must happen in that particular order, so if you can't remember it (which no one expects you to) either search for it in Google, or use the longhand version.
+
+Using granularity, we can change specific parts of an element's style
+```CSS
+p { border: 1px solid red; }
+p.intro { border-color: blue; }
+```
+This gives us a `<p>` with a 1px solid red border, but all `<p class="intro">` have a blue border.
+
+
+
+###Units of measurement
+We need to talk briefly here about the units used by CSS for determining elements relative size. Obviously we can't use anything like centimeters, as the browser has no way of telling what size monitor you're using.
+
+Instead CSS uses _absolute_ and _relative_ units of measurement.
+
+####Absolute
+Absolute units use units that are always the same size, in this case pixels `px`.
+
+
+####Relative
+Relative units such as `em` and `%` are calculated relative to other characteristics.
+
+* `em` - always relative to the current value of font-size, `2em` sets size to twice current font size.
+* `%` - relative to different things in different contexts
+  * `width: 50%;` - 50% of the available width
+  * `font-size: 50%` - 50% of the current font size
+
+For example
+```CSS
+body { font-size: 12px; }
+h1 { font-size: 200%; }
+h1 a { font-size: 75%; }
+```
+This sets body's font size to 12 pixels, the h1 header's font size to twice body's font-size, giving us 24 pixels, and all links inside h1 to 75% of h1's font size, giving 18 pixels.
+
+
+####Typography (optional)
+Additional information on where `em` comes from can be found [here](http://en.wikipedia.org/wiki/Em_(typography)).
+
+Font's are dependent on the fonts available on the Operating System of the computer browsing your web page, generally sans-serif fonts are better for web pages.
+
+
+
+###Putting the Cascade into Cascading Style Sheets
+It's called Cascading Style Sheets for a reason, and that is because style is applied in the order you define it, meaning the last style defined is the one that takes effect.
+
+There is a catch to this, that last _most specific_ selector is the one that takes effect, this is defined by a points system.
+
+selector|points value
+element|1
+class|10
+id|100
