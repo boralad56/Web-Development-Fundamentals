@@ -44,5 +44,114 @@ Finally if we disable CSS as well, we end up with a rather barebones, but still 
 ![alt text](https://raw.githubusercontent.com/AndrewSpeed/Web-Development-Fundamentals/master/images/demo_page_no_css_js.jpg "CSS and Javascript disabled")
 
 
+###Recap
+So far we've learned what each of the web technologies we're looking at is for, and how they affect different parts of the page's functionality.
 
 
+HTML
+----------------------------
+
+As we've already learned, HTML is used to define the content and structure of a webpage.
+
+One of the common misconceptions is that HTML is a programming language, it's not.
+Markup languages like HTML add structured information, a markup language called markdown was used to write this tutorial.
+
+###What does it look like?
+You may have seen HTML before, but if not is looks something like this
+```HTML
+<tagname attribute='value'>
+  content
+</tagname>
+
+<p id='id' class='classname'>
+  Lorem ipsum dolorem...
+</p>
+```
+
+In the section above, there are two __elements__, a tagname and a paragraph. Each element has an opening tag, some content and a closing tag. Elements can also be nested inside each other, creating what is known as a tree.
+
+The paragraph element seen above has both an id and a class, these are used to identify it for CSS and JavaScript.
+
+Since HTML is the skeleton of the web page, you should write this first, then add style and behaviour afterwards.
+
+We'll very briefly cover some of the common HTML elements.
+
+###Headers
+Header tags are used in HTML to create headlines that separate sections of content, these have been used throughout this page.
+
+Header tags look like the following
+```HTML
+<h1>Header<\h1>
+<h2>Header<\h2>
+<h3>Header<\h3>
+...
+<h6>Header<\h6>
+```
+
+H1 tags are used for main headings, with the decreasing numbers being used for less important headings. 
+
+It's important not to use these headings for their size, as that can be changed in the CSS, but to separate content. 
+
+You ideally shouldn't use h1 for main headers then h3 tags for subheadings.
+
+
+###Paragraphs
+Paragraphs `<p>content<\p>` are used to display, as their name suggests, paragraphs of content.
+
+
+###Lists
+Lists are, you guessed it, used to display lists of content such as links.
+
+There are two kinds of lists in HTML, both of which you've already seen, Ordered Lists and Unordered Lists.
+
+####Ordered Lists
+```HTML
+<ol>
+  <li>Item<\li>
+  ...
+<\ol>
+```
+Ordered lists should be used for lists when the order of items is significant, such as for search results or instructions.
+
+####Unordered Lists
+```HTML
+<ul>
+  <li>Item<\li>
+  ...
+<\ul>
+```
+In contrast, unordered lists can be used for lists where the order doesn't matter, like a shopping list.
+
+
+###Emphasized text
+Text can be emphasized in HTML using the `<em>text<\em>` tag, this is better than the older `<i>` tags, which aren't always picked up by screen readers used by those who are visually impaired.
+
+In a regular browser this is displayed in italics, where as a screen reader will rise in pitch.
+
+###Bold text
+Text can also be displayed in bold, this used to be done with the `<b>` tag, but it's now recommended to use the `<strong>` tag instead, for reasons similar to the emphasized text tags.
+
+
+###Tables
+```HTML
+<table>               <!--opening table tag-->
+  <tr>                <!--opening row tag-->
+    <th>Name<\th>     <!--define table headers-->
+    <th>Age<\th>
+  <\tr>
+  <tr>
+    <td>Andrew<\td>   <!--define table cells-->
+    <td>22<\td>
+  <\tr>
+<\table>
+```
+As seen above, tables are made up of 3 parts, denoted by the comments.
+
+1. table tags - used to open and close the table
+2. table rows - used to open and close a row
+3. table headers - used to define a header cell for all cells beneath it
+4. table cells - used to define a regular cell
+
+
+###Recap
+In this section we've looked at some of the common HTML elements and how they should be used for the type of content to be displayed, and never because of how they appear in the browser.
