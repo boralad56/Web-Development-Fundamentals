@@ -345,6 +345,7 @@ It's called Cascading Style Sheets for a reason, and that is because style is ap
 There is a catch to this, that last _most specific_ selector is the one that takes effect, this is defined by a points system.
 
 selector | points value
+:--- :|: --- :
 element | 1
 class | 10
 id | 100
