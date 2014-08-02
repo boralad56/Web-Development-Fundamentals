@@ -70,7 +70,8 @@ You may have seen HTML before, but if not is looks something like this
 
 In the section above, there are two __elements__, a tagname and a paragraph. Each element has an opening tag, some content and a closing tag. Elements can also be nested inside each other, creating what is known as a tree.
 
-The paragraph element seen above has both an id and a class, these are used to identify it for CSS and JavaScript.
+The paragraph element seen above has both an id and a class, these are used to identify it for CSS and JavaScript. 
+__Id's should be unique, classes can be reused.__
 
 Since HTML is the skeleton of the web page, you should write this first, then add style and behaviour afterwards.
 
@@ -153,5 +154,35 @@ As seen above, tables are made up of 3 parts, denoted by the comments.
 4. table cells - used to define a regular cell
 
 
+###Doctype
+Finally, and also most importantly, you should always start your HTML page with `<!DOCTYPE html>`, this tells your browser that it's adhering to HTML standards.
+
+
 ###Recap
 In this section we've looked at some of the common HTML elements and how they should be used for the type of content to be displayed, and never because of how they appear in the browser.
+
+
+
+HTML Exercise
+----------------------------
+
+Okay, so now that we've learned some of the basics of HTML, but first we need to install a tool to write it with. If you're using Windows I recommend you download either [notepad++](http://notepad-plus-plus.org/) or [crimson editor](http://www.crimsoneditor.com/).
+
+Now let's download our specification for this exercise. You can copy the file contents from [here](https://raw.githubusercontent.com/AndrewSpeed/Web-Development-Fundamentals/master/exercises/html-exercise-unfinished.html).
+
+We're going to pretend that we've been given this template from a customer, who wants a web page that has this content. So to start we'll work on the HTML portion for this exercise.
+
+So, breaking this up into parts, how do we mark up:
+1. the text 'Web Developers, Inc.'?
+2. site navigation
+3. related brands, title of a section
+  * the brands inside the related brands section, should it be ordered or unordered?
+4. sign up, probably equal importance as related brands
+  * the create a user section
+5. block of text
+
+Feel free to ask for help or ask someone's opinion. 
+__You can also go ahead and Google for a particular tag if you don't know what it is, it's usually best to search for something like 'HTML tag form input' if, for example, you were wanting to find the tag to create input for a form.__
+
+Once you think you're done, get a couple of other people to look it over, these can be the people around you!
+
