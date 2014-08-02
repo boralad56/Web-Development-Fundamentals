@@ -81,11 +81,11 @@ Header tags are used in HTML to create headlines that separate sections of conte
 
 Header tags look like the following
 ```HTML
-<h1>Header<\h1>
-<h2>Header<\h2>
-<h3>Header<\h3>
+<h1>Header</h1>
+<h2>Header</h2>
+<h3>Header</h3>
 ...
-<h6>Header<\h6>
+<h6>Header</h6>
 ```
 
 H1 tags are used for main headings, with the decreasing numbers being used for less important headings. 
@@ -96,7 +96,7 @@ You ideally shouldn't use h1 for main headers then h3 tags for subheadings.
 
 
 ###Paragraphs
-Paragraphs `<p>content<\p>` are used to display, as their name suggests, paragraphs of content.
+Paragraphs `<p>content</p>` are used to display, as their name suggests, paragraphs of content.
 
 
 ###Lists
@@ -107,24 +107,24 @@ There are two kinds of lists in HTML, both of which you've already seen, Ordered
 ####Ordered Lists
 ```HTML
 <ol>
-  <li>Item<\li>
+  <li>Item</li>
   ...
-<\ol>
+</ol>
 ```
 Ordered lists should be used for lists when the order of items is significant, such as for search results or instructions.
 
 ####Unordered Lists
 ```HTML
 <ul>
-  <li>Item<\li>
+  <li>Item</li>
   ...
-<\ul>
+</ul>
 ```
 In contrast, unordered lists can be used for lists where the order doesn't matter, like a shopping list.
 
 
 ###Emphasized text
-Text can be emphasized in HTML using the `<em>text<\em>` tag, this is better than the older `<i>` tags, which aren't always picked up by screen readers used by those who are visually impaired.
+Text can be emphasized in HTML using the `<em>text</em>` tag, this is better than the older `<i>` tags, which aren't always picked up by screen readers used by those who are visually impaired.
 
 In a regular browser this is displayed in italics, where as a screen reader will rise in pitch.
 
@@ -136,14 +136,14 @@ Text can also be displayed in bold, this used to be done with the `<b>` tag, but
 ```HTML
 <table>               <!--opening table tag-->
   <tr>                <!--opening row tag-->
-    <th>Name<\th>     <!--define table headers-->
-    <th>Age<\th>
-  <\tr>
+    <th>Name</th>     <!--define table headers-->
+    <th>Age</th>
+  </tr>
   <tr>
-    <td>Andrew<\td>   <!--define table cells-->
-    <td>22<\td>
-  <\tr>
-<\table>
+    <td>Andrew</td>   <!--define table cells-->
+    <td>22</td>
+  </tr>
+</table>
 ```
 As seen above, tables are made up of 3 parts, denoted by the comments.
 
