@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Web-development-fundamentals : Tutorial material on the fundamentals of HTML, CSS and Javascript">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Web-development-fundamentals</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/AndrewSpeed/Web-Development-Fundamentals">View on GitHub</a>
+
+          <h1 id="project_title">Web-development-fundamentals</h1>
+          <h2 id="project_tagline">Tutorial material on the fundamentals of HTML, CSS and Javascript</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/AndrewSpeed/Web-Development-Fundamentals/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/AndrewSpeed/Web-Development-Fundamentals/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="web-development-fundamentals" class="anchor" href="#web-development-fundamentals"><span class="octicon octicon-link"></span></a>Web-Development-Fundamentals</h1>
+
+<p>This tutorial is based on the material HTML/CSS/JavaScript from the Group Up by Google, found <a href="https://www.youtube.com/playlist?list=PL697D36B35F92E9E4">here</a>.</p>
+
+<h2>
+<a name="introduction" class="anchor" href="#introduction"><span class="octicon octicon-link"></span></a>Introduction</h2>
+
+<p>First of all, lets take a look at what we use HTML, CSS and JavaScript (also known as JS) for.</p>
+
+<p>The User Interface (UI) is the interface that we, as users, interact with. For web applications this is done through a web browser, like the one you're using to read this with. The UI is made up of 3 parts:</p>
+
+<ol>
+<li>
+<em>Structure</em> - The content of the UI.</li>
+<li>
+<em>Presentation</em> - How the content is displayed.</li>
+<li>
+<em>Behaviour</em> - How the content behaves when certain actions occur.</li>
+</ol><p>These 3 components correspond to the 3 technologies we're going to be looking at:</p>
+
+<ol>
+<li>
+<em>Structure</em> - HTML</li>
+<li>
+<em>Presentation</em> - CSS</li>
+<li>
+<em>Behaviour</em> - JavaScript</li>
+</ol><p>Web pages used to have these 3 technologies jumbled together, in short, it was a nightmare. Over time practices have changed so that now our HTML, CSS and JS are all separated.</p>
+
+<p>This means that if we want to change how a website looks, we need to only swap out the corresponding CSS files, and any images used instead of having to root through HTML files looking for all CSS references.</p>
+
+<h3>
+<a name="why" class="anchor" href="#why"><span class="octicon octicon-link"></span></a>Why?</h3>
+
+<ul>
+<li>
+<em>Accessibility</em> - easy to use with screen readers and other accessibility devices</li>
+<li>
+<em>Portability</em> - easy to make a web page support mobile or tablet formats</li>
+<li>
+<em>Maintainability</em> - easy to make changes to on component without much effect on the others</li>
+<li>
+<em>Reduced Latency</em> - we can use caching techniques to have browsers download the CSS or JS files once, and check after a determined expiry period, meaning they don't have to download them every time they visit.</li>
+<li>
+<em>Graceful Degradation</em> - The web page will still function if the CSS or JS files don't get loaded in, for whatever reason.</li>
+</ul><p>Let's take a look at a website that does this <a href="http://webremix.org/labs/lab2/demos/demo.html">here</a> or just follow along with the screen shots below.</p>
+
+<p><img src="https://raw.githubusercontent.com/AndrewSpeed/Web-Development-Fundamentals/master/images/demo_page.jpg" alt="alt text" title="http://webremix.org/labs/lab2/demos/demo.html">
+As you can see, the page has an interactive navigation bar at the top that highlights whatever is hovered over, and displays a list of items under the 'Contact' tab. 
+It also has lists of links on the left that can be shrunk or expanded by clicking on the '-' or '+' buttons, this is provided by JavaScript. 
+There is also a form for submitting data and table for displaying it.</p>
+
+<p>If we disable the JavaScript, we can see below that the only change is that the '-' and '+' buttons are gone from the quicklink lists, there have been other changes but they're more subtle.
+<img src="https://raw.githubusercontent.com/AndrewSpeed/Web-Development-Fundamentals/master/images/demo_page_no_js.jpg" alt="alt text" title="Javascript disabled"></p>
+
+<p>Finally if we disable CSS as well, we end up with a rather barebones, but still functional web page.
+<img src="https://raw.githubusercontent.com/AndrewSpeed/Web-Development-Fundamentals/master/images/demo_page_no_css_js.jpg" alt="alt text" title="CSS and Javascript disabled"></p>
+
+<h3>
+<a name="recap" class="anchor" href="#recap"><span class="octicon octicon-link"></span></a>Recap</h3>
+
+<p>So far we've learned what each of the web technologies we're looking at is for, and how they affect different parts of the page's functionality.</p>
+
+<h2>
+<a name="html" class="anchor" href="#html"><span class="octicon octicon-link"></span></a>HTML</h2>
+
+<p>As we've already learned, HTML is used to define the content and structure of a webpage.</p>
+
+<p>One of the common misconceptions is that HTML is a programming language, it's not.
+Markup languages like HTML add structured information, a markup language called markdown was used to write this tutorial.</p>
+
+<h3>
+<a name="what-does-it-look-like" class="anchor" href="#what-does-it-look-like"><span class="octicon octicon-link"></span></a>What does it look like?</h3>
+
+<p>You may have seen HTML before, but if not is looks something like this</p>
+
+<div class="highlight highlight-HTML"><pre><span class="nt">&lt;tagname</span> <span class="na">attribute=</span><span class="s">'value'</span><span class="nt">&gt;</span>
+  content
+<span class="nt">&lt;/tagname&gt;</span>
+
+<span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">'id'</span> <span class="na">class=</span><span class="s">'classname'</span><span class="nt">&gt;</span>
+  Lorem ipsum dolorem...
+<span class="nt">&lt;/p&gt;</span>
+</pre></div>
+
+<p>In the section above, there are two <strong>elements</strong>, a tagname and a paragraph. Each element has an opening tag, some content and a closing tag. Elements can also be nested inside each other, creating what is known as a tree.</p>
+
+<p>The paragraph element seen above has both an id and a class, these are used to identify it for CSS and JavaScript. 
+<strong>Id's should be unique, classes can be reused.</strong></p>
+
+<p>Since HTML is the skeleton of the web page, you should write this first, then add style and behaviour afterwards.</p>
+
+<p>We'll very briefly cover some of the common HTML elements.</p>
+
+<h3>
+<a name="headers" class="anchor" href="#headers"><span class="octicon octicon-link"></span></a>Headers</h3>
+
+<p>Header tags are used in HTML to create headlines that separate sections of content, these have been used throughout this page.</p>
+
+<p>Header tags look like the following</p>
+
+<div class="highlight highlight-HTML"><pre><span class="nt">&lt;h1&gt;</span>Header<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;h2&gt;</span>Header<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;h3&gt;</span>Header<span class="nt">&lt;/h3&gt;</span>
+...
+<span class="nt">&lt;h6&gt;</span>Header<span class="nt">&lt;/h6&gt;</span>
+</pre></div>
+
+<p>H1 tags are used for main headings, with the decreasing numbers being used for less important headings. </p>
+
+<p>It's important not to use these headings for their size, as that can be changed in the CSS, but to separate content. </p>
+
+<p>You ideally shouldn't use h1 for main headers then h3 tags for subheadings.</p>
+
+<h3>
+<a name="paragraphs" class="anchor" href="#paragraphs"><span class="octicon octicon-link"></span></a>Paragraphs</h3>
+
+<p>Paragraphs <code>&lt;p&gt;content&lt;/p&gt;</code> are used to display, as their name suggests, paragraphs of content.</p>
+
+<h3>
+<a name="lists" class="anchor" href="#lists"><span class="octicon octicon-link"></span></a>Lists</h3>
+
+<p>Lists are, you guessed it, used to display lists of content such as links.</p>
+
+<p>There are two kinds of lists in HTML, both of which you've already seen, Ordered Lists and Unordered Lists.</p>
+
+<h4>
+<a name="ordered-lists" class="anchor" href="#ordered-lists"><span class="octicon octicon-link"></span></a>Ordered Lists</h4>
+
+<div class="highlight highlight-HTML"><pre><span class="nt">&lt;ol&gt;</span>
+  <span class="nt">&lt;li&gt;</span>Item<span class="nt">&lt;/li&gt;</span>
+  ...
+<span class="nt">&lt;/ol&gt;</span>
+</pre></div>
+
+<p>Ordered lists should be used for lists when the order of items is significant, such as for search results or instructions.</p>
+
+<h4>
+<a name="unordered-lists" class="anchor" href="#unordered-lists"><span class="octicon octicon-link"></span></a>Unordered Lists</h4>
+
+<div class="highlight highlight-HTML"><pre><span class="nt">&lt;ul&gt;</span>
+  <span class="nt">&lt;li&gt;</span>Item<span class="nt">&lt;/li&gt;</span>
+  ...
+<span class="nt">&lt;/ul&gt;</span>
+</pre></div>
+
+<p>In contrast, unordered lists can be used for lists where the order doesn't matter, like a shopping list.</p>
+
+<h3>
+<a name="emphasized-text" class="anchor" href="#emphasized-text"><span class="octicon octicon-link"></span></a>Emphasized text</h3>
+
+<p>Text can be emphasized in HTML using the <code>&lt;em&gt;text&lt;/em&gt;</code> tag, this is better than the older <code>&lt;i&gt;</code> tags, which aren't always picked up by screen readers used by those who are visually impaired.</p>
+
+<p>In a regular browser this is displayed in italics, where as a screen reader will rise in pitch.</p>
+
+<h3>
+<a name="bold-text" class="anchor" href="#bold-text"><span class="octicon octicon-link"></span></a>Bold text</h3>
+
+<p>Text can also be displayed in bold, this used to be done with the <code>&lt;b&gt;</code> tag, but it's now recommended to use the <code>&lt;strong&gt;</code> tag instead, for reasons similar to the emphasized text tags.</p>
+
+<h3>
+<a name="tables" class="anchor" href="#tables"><span class="octicon octicon-link"></span></a>Tables</h3>
+
+<div class="highlight highlight-HTML"><pre><span class="nt">&lt;table&gt;</span>               <span class="c">&lt;!--opening table tag--&gt;</span>
+  <span class="nt">&lt;tr&gt;</span>                <span class="c">&lt;!--opening row tag--&gt;</span>
+    <span class="nt">&lt;th&gt;</span>Name<span class="nt">&lt;/th&gt;</span>     <span class="c">&lt;!--define table headers--&gt;</span>
+    <span class="nt">&lt;th&gt;</span>Age<span class="nt">&lt;/th&gt;</span>
+  <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;tr&gt;</span>
+    <span class="nt">&lt;td&gt;</span>Andrew<span class="nt">&lt;/td&gt;</span>   <span class="c">&lt;!--define table cells--&gt;</span>
+    <span class="nt">&lt;td&gt;</span>22<span class="nt">&lt;/td&gt;</span>
+  <span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+</pre></div>
+
+<p>As seen above, tables are made up of 3 parts, denoted by the comments.</p>
+
+<ol>
+<li>table tags - used to open and close the table</li>
+<li>table rows - used to open and close a row</li>
+<li>table headers - used to define a header cell for all cells beneath it</li>
+<li>table cells - used to define a regular cell</li>
+</ol><h3>
+<a name="doctype" class="anchor" href="#doctype"><span class="octicon octicon-link"></span></a>Doctype</h3>
+
+<p>Finally, and also most importantly, you should always start your HTML page with <code>&lt;!DOCTYPE html&gt;</code>, this tells your browser that it's adhering to HTML standards.</p>
+
+<h3>
+<a name="recap-1" class="anchor" href="#recap-1"><span class="octicon octicon-link"></span></a>Recap</h3>
+
+<p>In this section we've looked at some of the common HTML elements and how they should be used for the type of content to be displayed, and never because of how they appear in the browser.</p>
+
+<h2>
+<a name="html-exercise" class="anchor" href="#html-exercise"><span class="octicon octicon-link"></span></a>HTML Exercise</h2>
+
+<p>Okay, so now that we've learned some of the basics of HTML, but first we need to install a tool to write it with. If you're using Windows I recommend you download either <a href="http://notepad-plus-plus.org/">notepad++</a> or <a href="http://www.crimsoneditor.com/">crimson editor</a>.</p>
+
+<p>Now let's download our specification for this exercise. You can copy the file contents from <a href="https://raw.githubusercontent.com/AndrewSpeed/Web-Development-Fundamentals/master/exercises/html-exercise-unfinished.html">here</a>.</p>
+
+<p>We're going to pretend that we've been given this template from a customer, who wants a web page that has this content. So to start we'll work on the HTML portion for this exercise.</p>
+
+<p>So, breaking this up into parts, how do we mark up:
+1. the text 'Web Developers, Inc.'?
+2. site navigation
+3. related brands, title of a section</p>
+
+<ul>
+<li>the brands inside the related brands section, should it be ordered or unordered?
+
+<ol>
+<li>sign up, probably equal importance as related brands</li>
+</ol>
+</li>
+<li>the create a user section
+
+<ol>
+<li>block of text</li>
+</ol>
+</li>
+</ul><p>Feel free to ask for help or ask someone's opinion. 
+<strong>You can also go ahead and Google for a particular tag if you don't know what it is, it's usually best to search for something like 'HTML tag form input' if, for example, you were wanting to find the tag to create input for a form.</strong></p>
+
+<p>Once you think you're done, get a couple of other people to look it over, these can be the people around you! Discuss it and see what other people think, it's okay to disagree as long as you have a reason for why you made your decision.</p>
+
+<h2>
+<a name="css" class="anchor" href="#css"><span class="octicon octicon-link"></span></a>CSS</h2>
+
+<p>Cascading Style Sheets (CSS), as we've mentioned before, modifies the style of your page's content.</p>
+
+<h3>
+<a name="how-do-we-get-it-into-my-web-page" class="anchor" href="#how-do-we-get-it-into-my-web-page"><span class="octicon octicon-link"></span></a>How do we get it into my web page?</h3>
+
+<p>There are 3 possible options, from worst to best.</p>
+
+<ol>
+<li>
+<p>Inline CSS (Bad, don't ever do this) - </p>
+
+<div class="highlight highlight-HTML"><pre><span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;h1</span> <span class="na">style=</span><span class="s">"color: red;"</span><span class="nt">&gt;</span>Hello<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+</pre></div>
+
+<p>Using the style attribute on an element, you can change the a particular element, but you're mixing your content and style, and also means you have to do this for each element you want to style. <em>Even control-c, control-v gets boring after a while</em></p>
+</li>
+<li>
+<p>Embedded CSS (Okay, but not great either) - </p>
+
+<div class="highlight highlight-HTML"><pre><span class="nt">&lt;head&gt;</span>
+<span class="nt">&lt;style </span><span class="na">type=</span><span class="s">"text/css"</span><span class="nt">&gt;</span>
+  <span class="nt">p</span> <span class="p">{</span>
+      <span class="k">color</span><span class="o">:</span> <span class="nb">red</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+</pre></div>
+
+<p>This makes use of the <code>&lt;style&gt;</code> tag to affect whatever elements in your page you select inside it, for example in this example we make all paragraph elements red.</p>
+</li>
+<li>
+<p>External CSS (Good) - </p>
+
+<div class="highlight highlight-HTML"><pre><span class="nt">&lt;head&gt;</span>
+<span class="nt">&lt;link</span>
+  <span class="na">rel=</span><span class="s">"stylesheet"</span>
+  <span class="na">href=</span><span class="s">"my_styles.css"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+</pre></div>
+
+<p>This is the best of all, it uses the <code>&lt;style&gt;</code> tag from before, but downloads the stylesheet (that's the one with the .css extension) and applies it to this page. This allows us to write one stylesheet to affect an entire site instead of rewriting all the CSS for each page!</p>
+</li>
+</ol><h3>
+<a name="how-does-it-work" class="anchor" href="#how-does-it-work"><span class="octicon octicon-link"></span></a>How does it work?</h3>
+
+<p>CSS has 3 parts:
+1. Selector
+2. Properties
+3. Values</p>
+
+<p>For example, first we <strong>select</strong> the element:
+<code>p { }</code></p>
+
+<p>Next we <strong>select the properties we want to change</strong>:
+<code>p { color: }</code></p>
+
+<p>Finally, we say what <strong>values we want these properties to have</strong>:
+<code>p { color: blue; }</code></p>
+
+<p>So we're going to make all paragraphs have blue text in this example.
+You'll notice that there's a special language, or <strong>syntax</strong> used for CSS, see the diagram below for some of this.
+<img src="https://raw.githubusercontent.com/AndrewSpeed/Web-Development-Fundamentals/master/images/css_syntax.jpg" alt="alt text" title="The syntax can be tricky, so don't worry if you make mistakes."></p>
+
+<h3>
+<a name="selectors-thing-before-the-curly-braces" class="anchor" href="#selectors-thing-before-the-curly-braces"><span class="octicon octicon-link"></span></a>Selectors (thing before the curly braces)</h3>
+
+<p>So now that you have a rough overview, we're going to go into a bit more depth.</p>
+
+<p>You select in 4 different ways:
+1. elements - select all of a particular element in the page, <code>p { }</code> selects all paragraph elements on the page.
+2. class - select any elements on the page with that class, <code>.help { }</code> selects any elements with the class named 'help'. <em>("." is how you specify a class name)</em>
+3. id - select the element with the id specified, <code>#about { }</code> selects the element with the id 'about', <strong>remember id's should be unique, so it should only be one element selected.</strong> <em>("#" is how you specify an id name)</em>
+4. position in the document - select the elements contained within one or more other elements.</p>
+
+<div class="highlight highlight-HTML"><pre>  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"about"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"help intro"</span><span class="nt">&gt;&lt;/p&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"help"</span><span class="nt">&gt;&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;p&gt;&lt;/p&gt;</span>
+
+  #about p {}  <span class="c">&lt;!--Selects any p element inside an element with the id "about"--&gt;</span>
+</pre></div>
+
+<p>The example above selects the first two <code>&lt;p&gt;</code> elements, but not the third as it's outside the <code>&lt;div&gt;</code> with the id "about"</p>
+
+<h4>
+<a name="things-to-watch-out-for-with-ids-and-classes" class="anchor" href="#things-to-watch-out-for-with-ids-and-classes"><span class="octicon octicon-link"></span></a>Things to watch out for with id's and classes</h4>
+
+<p>In CSS, if you select an element using <code>#help</code> you'll get only the element with the id "help". 
+If you select using a class <code>.help</code> you'll select all elements with the class help, including those with other classes.</p>
+
+<h3>
+<a name="declarations-what-we-want-to-change" class="anchor" href="#declarations-what-we-want-to-change"><span class="octicon octicon-link"></span></a>Declarations (what we want to change)</h3>
+
+<p>CSS defines all properties of an element that you can change (unfortunately using the American spelling), for example:</p>
+
+<ul>
+<li><code>font</code></li>
+<li><code>color</code></li>
+<li><code>background-color</code></li>
+<li><code>border</code></li>
+</ul><p>Each property has a set of values that can be applied, examples below:</p>
+
+<ul>
+<li>
+<code>font: 12px normal Verdana, sans-serif;</code> - sets to 12 pixels and font style</li>
+<li>
+<code>color: #123;</code> - set as colour value matching the hexadecimal value 123</li>
+<li>
+<code>background-color: red;</code> - set as system colour red</li>
+<li>
+<code>border: 1px solid rgb(193, 193, 193);</code> - sets the solid border as 1 pixel thick with colour of rgb value 193, 193, 193.</li>
+</ul><p>Properties come in a variety of granularity, meaning how much fine detail control you have over them. For example the border example above is high granularity, as you can set the color, and width of each side of a border individually, but we set all 4 at once.</p>
+
+<p><code>border: 1px solid #000;</code> is the same as</p>
+
+<div class="highlight highlight-CSS"><pre>  <span class="nt">border-width</span><span class="o">:</span> <span class="nt">1px</span><span class="o">;</span>
+  <span class="nt">border-style</span><span class="o">:</span> <span class="nt">solid</span><span class="o">;</span>
+  <span class="nt">border-color</span><span class="o">:</span> <span class="nf">#000</span><span class="o">;</span>
+</pre></div>
+
+<p>The shorthand used above must happen in that particular order, so if you can't remember it (which no one expects you to) either search for it in Google, or use the longhand version.</p>
+
+<p>Using granularity, we can change specific parts of an element's style</p>
+
+<div class="highlight highlight-CSS"><pre><span class="nt">p</span> <span class="p">{</span> <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="nb">red</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">p</span><span class="nc">.intro</span> <span class="p">{</span> <span class="k">border-color</span><span class="o">:</span> <span class="nb">blue</span><span class="p">;</span> <span class="p">}</span>
+</pre></div>
+
+<p>This gives us a <code>&lt;p&gt;</code> with a 1px solid red border, but all <code>&lt;p class="intro"&gt;</code> have a blue border.</p>
+
+<h3>
+<a name="units-of-measurement" class="anchor" href="#units-of-measurement"><span class="octicon octicon-link"></span></a>Units of measurement</h3>
+
+<p>We need to talk briefly here about the units used by CSS for determining elements relative size. Obviously we can't use anything like centimeters, as the browser has no way of telling what size monitor you're using.</p>
+
+<p>Instead CSS uses <em>absolute</em> and <em>relative</em> units of measurement.</p>
+
+<h4>
+<a name="absolute" class="anchor" href="#absolute"><span class="octicon octicon-link"></span></a>Absolute</h4>
+
+<p>Absolute units use units that are always the same size, in this case pixels <code>px</code>.</p>
+
+<h4>
+<a name="relative" class="anchor" href="#relative"><span class="octicon octicon-link"></span></a>Relative</h4>
+
+<p>Relative units such as <code>em</code> and <code>%</code> are calculated relative to other characteristics.</p>
+
+<ul>
+<li>
+<code>em</code> - always relative to the current value of font-size, <code>2em</code> sets size to twice current font size.</li>
+<li>
+<code>%</code> - relative to different things in different contexts
+
+<ul>
+<li>
+<code>width: 50%;</code> - 50% of the available width</li>
+<li>
+<code>font-size: 50%</code> - 50% of the current font size</li>
+</ul>
+</li>
+</ul><p>For example</p>
+
+<div class="highlight highlight-CSS"><pre><span class="nt">body</span> <span class="p">{</span> <span class="k">font-size</span><span class="o">:</span> <span class="m">12px</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">h1</span> <span class="p">{</span> <span class="k">font-size</span><span class="o">:</span> <span class="m">200%</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">h1</span> <span class="nt">a</span> <span class="p">{</span> <span class="k">font-size</span><span class="o">:</span> <span class="m">75%</span><span class="p">;</span> <span class="p">}</span>
+</pre></div>
+
+<p>This sets body's font size to 12 pixels, the h1 header's font size to twice body's font-size, giving us 24 pixels, and all links inside h1 to 75% of h1's font size, giving 18 pixels.</p>
+
+<h4>
+<a name="typography-optional" class="anchor" href="#typography-optional"><span class="octicon octicon-link"></span></a>Typography (optional)</h4>
+
+<p>Additional information on where <code>em</code> comes from can be found <a href="http://en.wikipedia.org/wiki/Em_(typography)">here</a>.</p>
+
+<p>Font's are dependent on the fonts available on the Operating System of the computer browsing your web page, generally sans-serif fonts are better for web pages.</p>
+
+<h3>
+<a name="putting-the-cascade-into-cascading-style-sheets" class="anchor" href="#putting-the-cascade-into-cascading-style-sheets"><span class="octicon octicon-link"></span></a>Putting the Cascade into Cascading Style Sheets</h3>
+
+<p>It's called Cascading Style Sheets for a reason, and that is because style is applied in the order you define it, meaning the last style defined is the one that takes effect.</p>
+
+<p>There is a catch to this, that last <em>most specific</em> selector is the one that takes effect, this is defined by a points system.</p>
+
+<table>
+<thead><tr>
+<th>selector</th>
+<th>points value</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>element</td>
+<td>1</td>
+</tr>
+<tr>
+<td>class</td>
+<td>10</td>
+</tr>
+<tr>
+<td>id</td>
+<td>100</td>
+</tr>
+</tbody>
+</table><p>Some examples of this are:</p>
+
+<ul>
+<li>
+<code>p a {}</code> = 2 points (2 elements)</li>
+<li>
+<code>p.intro a {}</code> = 12 points (element, class, element)</li>
+<li>
+<code>#about p.intro a {}</code> = 112 points (id, element, class, element)</li>
+</ul><p>CSS also has what's known as <strong>inheritance</strong>, this means if we define an attribute for an element, all elements inside it also <strong>inherit</strong> that property, unless overridden.</p>
+
+<p>Unfortunately, this only applies to text-related properties such as colour, font, alignment, visibility etc. It doesn't apply to layout-related properties like borders, padding, background, etc.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Web-development-fundamentals maintained by <a href="https://github.com/AndrewSpeed">AndrewSpeed</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
