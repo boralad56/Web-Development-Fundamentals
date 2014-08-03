@@ -345,7 +345,19 @@ It's called Cascading Style Sheets for a reason, and that is because style is ap
 There is a catch to this, that last _most specific_ selector is the one that takes effect, this is defined by a points system.
 
 | selector | points value |
-| ---  |  ---  |
-| element | 1 |
-| class | 10 |
-| id | 100 |
+| -------- |  ----------- |
+| element  |       1      |
+|  class   |      10      |
+|    id    |     100      |
+
+Some examples of this are:
+* `p a {}` = 2 points (2 elements)
+* `p.intro a {}` = 12 points (element, class, element)
+* `#about p.intro a {}` = 112 points (id, element, class, element)
+
+
+CSS also has what's known as __inheritance__, this means if we define an attribute for an element, all elements inside it also __inherit__ that property, unless overridden.
+
+Unfortunately, this only applies to text-related properties such as colour, font, alignment, visibility etc. It doesn't apply to layout-related properties like borders, padding, background, etc.
+
+
