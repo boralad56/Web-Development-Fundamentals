@@ -361,3 +361,42 @@ CSS also has what's known as __inheritance__, this means if we define an attribu
 Unfortunately, this only applies to text-related properties such as colour, font, alignment, visibility etc. It doesn't apply to layout-related properties like borders, padding, background, etc.
 
 
+###Layouts
+Here we're going to discuss 4 different types of layout used in CSS, and how they affect the positioning of elements on a page.
+
+####Box Model
+This is the easiest to understand model, and comprises of _content_, _padding_, _border_, and _margin_. Every box has these properties
+
+The diagram below displays each of these attributes around a box. The box contains the _content_ of the element, and around this is the _padding_, the _border_ surrounds this and then the _margin_ is on the outermost layer. If you set the background on a box element, this will go inside all attributes except the margin.
+![alt text](https://raw.githubusercontent.com/AndrewSpeed/Web-Development-Fundamentals/master/images/box_model.png "The box model.")
+
+When settings attributes on the box model using shorthand, defining `CSS margin: 1em 2em;` would set the top and bottom as 1em, and left and right as 2em.
+
+Where as if we define it as `margin: 1em 2em 3em 4em;` this will set the top to 1em, right to 2em, bottom to 3em and left to 4em. This always starts with the top and goes clockwise.
+
+####Display
+The two most commonly used attributes of display are _inline_ and _block_.
+_Inline_ boxes can appear next to one another, think of this like boxes are represented by words  in a sentence, each word is followed by another.
+
+_Block_ boxes take up an entire line, forcing other boxes onto the next line down.
+
+####Position
+This defines where the elements will be displayed in relation to all other objects and will be covered in the exercise later. The only thing you need to know right now is that there are 4 values:
+1. static (the default)
+2. relative
+3. absolute
+4. fixed
+
+####Float
+Like position, this is best seen in practice as it can be confusing, so we'll cover it in the exercise.
+
+
+###Recap
+So we've seen a lot of stuff, don't worry if you don't remember it all, that's what Google is for! You should hopefully understand the basic concepts of cascading effects and the points system for specifying elements, those are the most important parts.
+
+There are 3 different specifications for CSS, with CSS3 adding some cool new effects which you can go and look up if you want, or you can go straight to the exercise.
+
+
+
+CSS Exercise
+----------------------------
