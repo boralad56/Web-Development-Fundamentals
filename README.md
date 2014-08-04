@@ -398,5 +398,89 @@ There are 3 different specifications for CSS, with CSS3 adding some cool new eff
 
 
 
-CSS Exercise
+CSS Walkthrough and Exercise
 ----------------------------
+Okay for this section we're first going to just make some changes to a web page's CSS, refresh to see the effect and learn from observation what the particular attribute effects are, then move onto an exercise for you to attempt on your own.
+
+So first of all, copy the contents of the [CSS walkthrough](https://raw.githubusercontent.com/AndrewSpeed/Web-Development-Fundamentals/master/exercises/css-walkthrough.html) and save it as an html file, then open it with your web browser of choice.
+
+In the file you'll notice some CSS already there, leave that as it is, we're going to be copying and pasting in the commented out lines below this. The `#wd-c` id's refer to some html elements defined further below, standing for web developer container.
+
+Initially you should see the page render as 3 boxes, with the numbers 1 to 3 and colours red, yellow and blue respectively. These boxes are `<div>` containers, these take up an entire line, and if you resize you're window you'll notice that these  take up the entire width of the page, that's the default for div elements.
+
+You'll also notice that there's a small gap between the divs and the screen edge, this is due to the default CSS built into the browser, that gives a default margin of 10px.
+
+If you're using Chrome or Firefox, pressing F12 will give you a development console, by going into 'Inspector' for Firefox or 'Elements' for Chrome, you'll be able to click on individual parts of the HTML and see the CSS that's been applied for that particular element on the right of the panel.
+
+If you're using firefox, you may want to install the [Firebug extension](http://getfirebug.com/).
+
+###Flow
+At the bottom of that page you'll see the text about elements being either 'in' or 'out' of the flow. Elements in the flow cause sibling elements, those that follow it, to render with respect to the current element. If an element is out of the flow, the first div for example, then the second would appear where the first is currently.
+
+###Let's get to work!
+1. Copy and paste the first line into the uncommented section, and you should see the div elements inside the main container shrink to 150px wide, but the main container stays the same width.
+
+  _This shows us that divs always take up the maximum width of the screen by default, even if their contents don't._
+
+2. Let's try the next line. This changes the divs to _display inline, meaning that they consume only the amount of space that their contents do_, in this case the number inside them. _This overrides any settings of height and width._
+
+3. Add in the third line, and things should reset to make our blocks back to as they were after the first instruction. After this try the next line, and you'll see that the number 2 in the second div has been centered.
+
+  In inspector or elements mode if you hover over the 2 in the html, you'll see it doesn't take up any more space than before, but has just been placed midway between the left and right edges.
+
+4. Now let's set wd-2 to display inline. It doesn't have any effect, but why?
+
+5. Once you've figured out the answer to that we're going to add the next line, which specifies the same element, but this time it works as we expected. If you can't work out why this is happening, the easiest way to learn is to ask.
+
+6. Change the element back to being a block, then add in the following 3 lines to set the margin, padding and border. We have 1em of margin (1 font size width), 10px of padding and 2px of dotted border. Use the inspector and box model view to better see the changes that have been made.
+
+7. Next up is to change the second div's visibility. Note that once we do this the div still takes up the same amount of space.
+
+8. Next we'll set 2 to not display, which takes it out of the flow all together and makes it invisible as well. Now add in the next couple of lines to have it display block again.
+
+9. Make the changes to set it's position as absolute, and you'll see that 3 has rendered on top of 2, this is because we've taken it out of the flow, and if we add the next line, 2 will display on the right side of the main container.
+
+  _It may not look like it's completely at the right, but don't forget that there's the margin and padding to take into account!_ To see that this is the case, set the margin to 0, and 2 goes right to the edge of the screen.
+
+  Now we'll set the distance from the top of the screen to be 20px, and the bottom to 20px. Where does the box appear, and why do you think this is?
+
+10. Try settings top to auto, and see what changes happen, then do the same for bottom. Why is this?
+
+11. Reset the margin and set our position to static and we'll go back to where we started off after adding the margin, padding and border.
+
+12. Change the position to relative, and nothing seems to have changed. Try adding the left and top rules after this, what's happened?
+
+13. Set 2's position to be static again, and it's reset. Now try changing the container divs display to be inline. 1 and 3 have inherited the display inline, but 2 didn't, why?
+
+  Add in the more specific rule for 2 to set it to inline (hint), and the container div shrinks to the size of it's contents.
+
+  _As you can see, being specific with selectors can be a double-edged sword if you're not careful._
+
+14. Next up is float, add it to the container div and see what happens. The container has forgotten all about the divs which it previously contained, __and are being displayed in a block display, apart from taking up the whole line__.
+
+  The float effect is particularly useful for images, as it allows text to be wrapped around it.
+
+15. Finally, let's add the clear left to 2 first, and you'll notice 2 shifted down a line. This rule makes 2 have nothing on it's left, and if you apply this rule to 3, you'll see that we end up back where we were.
+
+
+###Intermission
+This was undoubtedly confusing in places, that's web development, the trick to this is making a change, seeing what it affects and then reasoning why that happened and how you can get to your desired result.
+
+Feel free to go back through the previous section and try to understand it or discuss it with people around you.
+
+
+###Exercise
+If you remember the demo website we looked at, we're going to be creating the navigation bar for it using only CSS, no JavaScript. (If you need a refresher, [here's the site](http://webremix.org/labs/lab2/demos/demo.html))
+
+So first of all, get the example you're going to be working on [here](https://raw.githubusercontent.com/AndrewSpeed/Web-Development-Fundamentals/master/exercises/css-exercise-unfinished.html) and as before, save it in an html file then open it in your browser.
+
+You'll see the list we created in our html exercise, but open it in an editor and you'll see an id's been added.
+
+From here you need to follow the steps in the comments in the file:
+1. Make all of the list items render horizontally
+2. Make the second list's items render vertically
+3. Hide the second list
+4. Add padding, margin and background colour as needed.
+
+__Don't panic if you get stuck, it may be best to work together with 1 or 2 other people on this part. Take 10-15 minutes on your own to get it as close as you can.__
+
