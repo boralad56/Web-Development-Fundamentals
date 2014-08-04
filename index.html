@@ -31,7 +31,90 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h1>
+        
+
+
+
+<p><strong>Table of Contents</strong>  <em>generated with <a href="http://doctoc.herokuapp.com/">DocToc</a></em></p>
+
+<ul>
+<li>
+<a href="#web-development-fundamentals">Web-Development-Fundamentals</a>
+
+<ul>
+<li>
+<a href="#introduction">Introduction</a>
+
+<ul>
+<li><a href="#why">Why?</a></li>
+<li><a href="#recap">Recap</a></li>
+</ul>
+</li>
+<li>
+<a href="#html">HTML</a>
+
+<ul>
+<li><a href="#what-does-it-look-like">What does it look like?</a></li>
+<li><a href="#header">Header</a></li>
+<li><a href="#headers">Headers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="#header-1">Header</a>
+
+<ul>
+<li>
+<a href="#header-2">Header</a>
+
+<ul>
+<li><a href="#paragraphs">Paragraphs</a></li>
+<li>
+<a href="#lists">Lists</a>
+
+<ul>
+<li><a href="#ordered-lists">Ordered Lists</a></li>
+<li><a href="#unordered-lists">Unordered Lists</a></li>
+</ul>
+</li>
+<li><a href="#emphasized-text">Emphasized text</a></li>
+<li><a href="#bold-text">Bold text</a></li>
+<li><a href="#tables">Tables</a></li>
+<li><a href="#doctype">Doctype</a></li>
+<li><a href="#recap-1">Recap</a></li>
+</ul>
+</li>
+<li><a href="#html-exercise">HTML Exercise</a></li>
+<li>
+<a href="#css">CSS</a>
+
+<ul>
+<li><a href="#how-do-we-get-it-into-my-web-page">How do we get it into my web page?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="#hello">Hello</a>
+
+<ul>
+<li><a href="#how-does-it-work">How does it work?</a></li>
+<li>
+<a href="#selectors-thing-before-the-curly-braces">Selectors (thing before the curly braces)</a>
+
+<ul>
+<li><a href="#things-to-watch-out-for-with-ids-and-classes">Things to watch out for with id's and classes</a></li>
+</ul>
+</li>
+<li><a href="#declarations-what-we-want-to-change">Declarations (what we want to change)</a></li>
+<li><a href="#css-walkthrough-and-exercise">CSS Walkthrough and Exercise</a></li>
+<li><a href="#javascript">Javascript</a></li>
+</ul>
+</li>
+<li><a href="#about-">about {}</a></li>
+<li><a href="#about-p-">about p {}</a></li>
+</ul><h1>
 <a name="web-development-fundamentals" class="anchor" href="#web-development-fundamentals"><span class="octicon octicon-link"></span></a>Web-Development-Fundamentals</h1>
 
 <p>This tutorial is based on the material HTML/CSS/JavaScript from the Group Up by Google, found <a href="https://www.youtube.com/playlist?list=PL697D36B35F92E9E4">here</a>.</p>
@@ -476,6 +559,430 @@ If you select using a class <code>.help</code> you'll select all elements with t
 </ul><p>CSS also has what's known as <strong>inheritance</strong>, this means if we define an attribute for an element, all elements inside it also <strong>inherit</strong> that property, unless overridden.</p>
 
 <p>Unfortunately, this only applies to text-related properties such as colour, font, alignment, visibility etc. It doesn't apply to layout-related properties like borders, padding, background, etc.</p>
+
+<h3>
+<a name="layouts" class="anchor" href="#layouts"><span class="octicon octicon-link"></span></a>Layouts</h3>
+
+<p>Here we're going to discuss 4 different types of layout used in CSS, and how they affect the positioning of elements on a page.</p>
+
+<h4>
+<a name="box-model" class="anchor" href="#box-model"><span class="octicon octicon-link"></span></a>Box Model</h4>
+
+<p>This is the easiest to understand model, and comprises of <em>content</em>, <em>padding</em>, <em>border</em>, and <em>margin</em>. Every box has these properties</p>
+
+<p>The diagram below displays each of these attributes around a box. The box contains the <em>content</em> of the element, and around this is the <em>padding</em>, the <em>border</em> surrounds this and then the <em>margin</em> is on the outermost layer. If you set the background on a box element, this will go inside all attributes except the margin.
+<img src="https://raw.githubusercontent.com/AndrewSpeed/Web-Development-Fundamentals/master/images/box_model.png" alt="alt text" title="The box model."></p>
+
+<p>When settings attributes on the box model using shorthand, defining <code>CSS margin: 1em 2em;</code> would set the top and bottom as 1em, and left and right as 2em.</p>
+
+<p>Where as if we define it as <code>margin: 1em 2em 3em 4em;</code> this will set the top to 1em, right to 2em, bottom to 3em and left to 4em. This always starts with the top and goes clockwise.</p>
+
+<h4>
+<a name="display" class="anchor" href="#display"><span class="octicon octicon-link"></span></a>Display</h4>
+
+<p>The two most commonly used attributes of display are <em>inline</em> and <em>block</em>.
+<em>Inline</em> boxes can appear next to one another, think of this like boxes are represented by words  in a sentence, each word is followed by another.</p>
+
+<p><em>Block</em> boxes take up an entire line, forcing other boxes onto the next line down.</p>
+
+<h4>
+<a name="position" class="anchor" href="#position"><span class="octicon octicon-link"></span></a>Position</h4>
+
+<p>This defines where the elements will be displayed in relation to all other objects and will be covered in the exercise later. The only thing you need to know right now is that there are 4 values:
+1. static (the default)
+2. relative
+3. absolute
+4. fixed</p>
+
+<h4>
+<a name="float" class="anchor" href="#float"><span class="octicon octicon-link"></span></a>Float</h4>
+
+<p>Like position, this is best seen in practice as it can be confusing, so we'll cover it in the exercise.</p>
+
+<h3>
+<a name="recap-2" class="anchor" href="#recap-2"><span class="octicon octicon-link"></span></a>Recap</h3>
+
+<p>So we've seen a lot of stuff, don't worry if you don't remember it all, that's what Google is for! You should hopefully understand the basic concepts of cascading effects and the points system for specifying elements, those are the most important parts.</p>
+
+<p>There are 3 different specifications for CSS, with CSS3 adding some cool new effects which you can go and look up if you want, or you can go straight to the exercise.</p>
+
+<h2>
+<a name="css-walkthrough-and-exercise" class="anchor" href="#css-walkthrough-and-exercise"><span class="octicon octicon-link"></span></a>CSS Walkthrough and Exercise</h2>
+
+<p>Okay for this section we're first going to just make some changes to a web page's CSS, refresh to see the effect and learn from observation what the particular attribute effects are, then move onto an exercise for you to attempt on your own.</p>
+
+<p>So first of all, copy the contents of the <a href="https://raw.githubusercontent.com/AndrewSpeed/Web-Development-Fundamentals/master/exercises/css-walkthrough.html">CSS walkthrough</a> and save it as an html file, then open it with your web browser of choice.</p>
+
+<p>In the file you'll notice some CSS already there, leave that as it is, we're going to be copying and pasting in the commented out lines below this. The <code>#wd-c</code> id's refer to some html elements defined further below, standing for web developer container.</p>
+
+<p>Initially you should see the page render as 3 boxes, with the numbers 1 to 3 and colours red, yellow and blue respectively. These boxes are <code>&lt;div&gt;</code> containers, these take up an entire line, and if you resize you're window you'll notice that these  take up the entire width of the page, that's the default for div elements.</p>
+
+<p>You'll also notice that there's a small gap between the divs and the screen edge, this is due to the default CSS built into the browser, that gives a default margin of 10px.</p>
+
+<p>If you're using Chrome or Firefox, pressing F12 will give you a development console, by going into 'Inspector' for Firefox or 'Elements' for Chrome, you'll be able to click on individual parts of the HTML and see the CSS that's been applied for that particular element on the right of the panel.</p>
+
+<p>If you're using firefox, you may want to install the <a href="http://getfirebug.com/">Firebug extension</a>.</p>
+
+<h3>
+<a name="flow" class="anchor" href="#flow"><span class="octicon octicon-link"></span></a>Flow</h3>
+
+<p>At the bottom of that page you'll see the text about elements being either 'in' or 'out' of the flow. Elements in the flow cause sibling elements, those that follow it, to render with respect to the current element. If an element is out of the flow, the first div for example, then the second would appear where the first is currently.</p>
+
+<h3>
+<a name="lets-get-to-work" class="anchor" href="#lets-get-to-work"><span class="octicon octicon-link"></span></a>Let's get to work!</h3>
+
+<ol>
+<li>
+<p>Copy and paste the first line into the uncommented section, and you should see the div elements inside the main container shrink to 150px wide, but the main container stays the same width.</p>
+
+<p><em>This shows us that divs always take up the maximum width of the screen by default, even if their contents don't.</em></p>
+</li>
+<li><p>Let's try the next line. This changes the divs to <em>display inline, meaning that they consume only the amount of space that their contents do</em>, in this case the number inside them. <em>This overrides any settings of height and width.</em></p></li>
+<li>
+<p>Add in the third line, and things should reset to make our blocks back to as they were after the first instruction. After this try the next line, and you'll see that the number 2 in the second div has been centered.</p>
+
+<p>In inspector or elements mode if you hover over the 2 in the html, you'll see it doesn't take up any more space than before, but has just been placed midway between the left and right edges.</p>
+</li>
+<li><p>Now let's set wd-2 to display inline. It doesn't have any effect, but why?</p></li>
+<li><p>Once you've figured out the answer to that we're going to add the next line, which specifies the same element, but this time it works as we expected. If you can't work out why this is happening, the easiest way to learn is to ask.</p></li>
+<li><p>Change the element back to being a block, then add in the following 3 lines to set the margin, padding and border. We have 1em of margin (1 font size width), 10px of padding and 2px of dotted border. Use the inspector and box model view to better see the changes that have been made.</p></li>
+<li><p>Next up is to change the second div's visibility. Note that once we do this the div still takes up the same amount of space.</p></li>
+<li><p>Next we'll set 2 to not display, which takes it out of the flow all together and makes it invisible as well. Now add in the next couple of lines to have it display block again.</p></li>
+<li>
+<p>Make the changes to set it's position as absolute, and you'll see that 3 has rendered on top of 2, this is because we've taken it out of the flow, and if we add the next line, 2 will display on the right side of the main container.</p>
+
+<p><em>It may not look like it's completely at the right, but don't forget that there's the margin and padding to take into account!</em> To see that this is the case, set the margin to 0, and 2 goes right to the edge of the screen.</p>
+
+<p>Now we'll set the distance from the top of the screen to be 20px, and the bottom to 20px. Where does the box appear, and why do you think this is?</p>
+</li>
+<li><p>Try settings top to auto, and see what changes happen, then do the same for bottom. Why is this?</p></li>
+<li><p>Reset the margin and set our position to static and we'll go back to where we started off after adding the margin, padding and border.</p></li>
+<li><p>Change the position to relative, and nothing seems to have changed. Try adding the left and top rules after this, what's happened?</p></li>
+<li>
+<p>Set 2's position to be static again, and it's reset. Now try changing the container divs display to be inline. 1 and 3 have inherited the display inline, but 2 didn't, why?</p>
+
+<p>Add in the more specific rule for 2 to set it to inline (hint), and the container div shrinks to the size of it's contents.</p>
+
+<p><em>As you can see, being specific with selectors can be a double-edged sword if you're not careful.</em></p>
+</li>
+<li>
+<p>Next up is float, add it to the container div and see what happens. The container has forgotten all about the divs which it previously contained, <strong>and are being displayed in a block display, apart from taking up the whole line</strong>.</p>
+
+<p>The float effect is particularly useful for images, as it allows text to be wrapped around it.</p>
+</li>
+<li><p>Finally, let's add the clear left to 2 first, and you'll notice 2 shifted down a line. This rule makes 2 have nothing on it's left, and if you apply this rule to 3, you'll see that we end up back where we were.</p></li>
+</ol><h3>
+<a name="intermission" class="anchor" href="#intermission"><span class="octicon octicon-link"></span></a>Intermission</h3>
+
+<p>This was undoubtedly confusing in places, that's web development, the trick to this is making a change, seeing what it affects and then reasoning why that happened and how you can get to your desired result.</p>
+
+<p>Feel free to go back through the previous section and try to understand it or discuss it with people around you.</p>
+
+<h3>
+<a name="exercise" class="anchor" href="#exercise"><span class="octicon octicon-link"></span></a>Exercise</h3>
+
+<p>If you remember the demo website we looked at, we're going to be creating the navigation bar for it using only CSS, no JavaScript. (If you need a refresher, <a href="http://webremix.org/labs/lab2/demos/demo.html">here's the site</a>)</p>
+
+<p>So first of all, get the example you're going to be working on <a href="https://raw.githubusercontent.com/AndrewSpeed/Web-Development-Fundamentals/master/exercises/css-exercise-unfinished.html">here</a> and as before, save it in an html file then open it in your browser.</p>
+
+<p>You'll see the list we created in our html exercise, but open it in an editor and you'll see an id's been added.</p>
+
+<p>From here you need to follow the steps in the comments in the file:
+1. Make all of the list items render horizontally
+2. Make the second list's items render vertically
+3. Hide the second list
+4. Add padding, margin and background colour as needed.</p>
+
+<p><strong>Don't panic if you get stuck, it may be best to work together with 1 or 2 other people on this part. Take 10-15 minutes on your own to get it as close as you can. Use Google if you need to look up how to do certain things</strong></p>
+
+<h2>
+<a name="javascript" class="anchor" href="#javascript"><span class="octicon octicon-link"></span></a>Javascript</h2>
+
+<p>Now we've made it to the Javascript portion of the tutorial.</p>
+
+<h3>
+<a name="whats-it-for" class="anchor" href="#whats-it-for"><span class="octicon octicon-link"></span></a>What's it for?</h3>
+
+<p>JS makes pages interactive, such as hiding or showing a menu, validating form inputs and even drag and drop objects!</p>
+
+<h3>
+<a name="how-do-i-use-it" class="anchor" href="#how-do-i-use-it"><span class="octicon octicon-link"></span></a>How do I use it?</h3>
+
+<p>Like CSS, there are a few different methods and we'll cover them from the easiest option to the best one.</p>
+
+<ol>
+<li>Inline JavaScript(Bad)</li>
+</ol><div class="highlight highlight-HTML"><pre><span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    ...
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    ...
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript: doSomething()"</span><span class="nt">&gt;</span>test1<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">onclick=</span><span class="s">"doSomething()"</span><span class="nt">&gt;</span>test2<span class="nt">&lt;/a&gt;</span>
+    ...
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+
+<p>Here we've added in some javascript that will execute when a user clicks on either of these links, but it's a <strong>bad idea</strong> since it breaks the separation of content, style and behaviour.</p>
+
+<ol>
+<li>Embedded JavaScript(Better)</li>
+</ol><div class="highlight highlight-HTML"><pre><span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    ...
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    ...
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+      <span class="nx">doSomething</span><span class="p">();</span>
+    <span class="nt">&lt;/script&gt;</span>
+    ...
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+
+<p>This has embedded some JS into the HTML by adding it into the script tag, this allows you to keep all your JS in one place in your HTML file. It's better, but still not great.</p>
+
+<ol>
+<li>External JavaScript(Best of all!)</li>
+</ol><div class="highlight highlight-HTML"><pre><span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    ...
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    ...
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"stuff.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    ...
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+
+<p>This is the best option as it keeps your HTML and JS separate, and allows you to reuse one JS file for all pages on a web site.</p>
+
+<h3>
+<a name="what-can-we-do" class="anchor" href="#what-can-we-do"><span class="octicon octicon-link"></span></a>What can we do?</h3>
+
+<p>JavaScript is a programming language, so it allows you to do quite a lot! 
+JS has become very popular in the past few years, with people making all kinds of cool libraries from data visualisation libraries like <a href="http://d3js.org/">d3</a> and <a href="http://www.highcharts.com/">highcharts</a> to running <a href="http://html5gameengine.com/">game engines in the browser</a>.</p>
+
+<p>A common mistake made by people is thinking that JavaScript is similar to Java, <em>it's not</em>. Apart from a few syntactic similarities, they're very different.</p>
+
+<p>The goal of this section isn't to teach you how to program, instead we'll cover best practices of how JS should be used. If you find the next few parts confusing, it'll get easier once you see how the JS affects interaction with the page.</p>
+
+<h3>
+<a name="fundamentals" class="anchor" href="#fundamentals"><span class="octicon octicon-link"></span></a>Fundamentals</h3>
+
+<p>Like all programming languages, JS has variables e.g. assigning 7 to the variable foo:</p>
+
+<div class="highlight highlight-JavaScript"><pre><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+</pre></div>
+
+<p>Operators can be used to do calculations:</p>
+
+<div class="highlight highlight-JavaScript"><pre><span class="kd">var</span> <span class="nx">bar</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">+</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span>
+</pre></div>
+
+<p>Strings are used to store text:</p>
+
+<div class="highlight highlight-JavaScript"><pre><span class="kd">var</span> <span class="nx">baz</span> <span class="o">=</span> <span class="s1">'a string'</span><span class="p">;</span>
+</pre></div>
+
+<p>Arrays are used to store multiple values:</p>
+
+<div class="highlight highlight-JavaScript"><pre><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+</pre></div>
+
+<p>Functions are defined like so:</p>
+
+<div class="highlight highlight-JavaScript"><pre><span class="kd">var</span> <span class="kd">function</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span><span class="c1">//Do something};</span>
+</pre></div>
+
+<p>Conditional statements are used to control what happens in a program:</p>
+
+<div class="highlight highlight-JavaScript"><pre><span class="k">if</span> <span class="p">(</span><span class="nx">something</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//Do something</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Loops are used to execute blocks of code multiple times:</p>
+
+<div class="highlight highlight-JavaScript"><pre><span class="k">while</span> <span class="p">(</span><span class="nx">something</span><span class="p">)</span> <span class="p">{</span><span class="c1">//Do this}</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span><span class="c1">//Do this}</span>
+</pre></div>
+
+<p>JS is also what's known as Object Oriented, this means you can create a new object, assign it to a variable and give that object properties and methods.</p>
+
+<div class="highlight highlight-JavaScript"><pre><span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{};</span> <span class="c1">//Create an object</span>
+
+<span class="nx">o</span><span class="p">.</span><span class="nx">isUpdated</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span> <span class="c1">//Property, a variable stuck to an object</span>
+<span class="nx">o</span><span class="p">.</span><span class="nx">updateNow</span><span class="p">(</span><span class="nx">someData</span><span class="p">);</span> <span class="c1">//Method, a function stuck to an object</span>
+</pre></div>
+
+<h3>
+<a name="how-does-it-interact-with-the-page" class="anchor" href="#how-does-it-interact-with-the-page"><span class="octicon octicon-link"></span></a>How does it interact with the page?</h3>
+
+<p>JS interacts with web pages through the Document Object Model (DOM). This is a tree of objects that matches the tree of elements in HTML.</p>
+
+<p>An HTML page of:</p>
+
+<div class="highlight highlight-HTML"><pre><span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"first"</span><span class="nt">&gt;&lt;/p&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"second"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;strong&gt;&lt;/strong&gt;</span>
+    <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"third"</span><span class="nt">&gt;&lt;/p&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+
+<p>Would give a DOM of:
+<em>window
+ - document
+    | p #first
+    | p #second
+      - strong
+    - p #third</em></p>
+
+<p>These objects are the handles that JS uses to modify the page.</p>
+
+<h4>
+<a name="dom-terminology" class="anchor" href="#dom-terminology"><span class="octicon octicon-link"></span></a>DOM terminology</h4>
+
+<table>
+<thead><tr>
+<th>HTML</th>
+<th>JavaScript</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>element</td>
+<td>node</td>
+</tr>
+<tr>
+<td>attribute</td>
+<td>property</td>
+</tr>
+</tbody>
+</table><h4>
+<a name="selecting-elements" class="anchor" href="#selecting-elements"><span class="octicon octicon-link"></span></a>Selecting elements</h4>
+
+<h5>
+<a name="getelementbyid" class="anchor" href="#getelementbyid"><span class="octicon octicon-link"></span></a>getElementById</h5>
+
+<p>This function gets a specific element by it's ID, hence the name.
+For example:</p>
+
+<div class="highlight highlight-JavaScript"><pre><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'about'</span><span class="p">);</span>
+</pre></div>
+
+<p>would get the same element as the CSS:</p>
+
+<div class="highlight highlight-CSS"><pre><span class="nf">#about</span> <span class="p">{}</span>
+</pre></div>
+
+<h5>
+<a name="getelementsbytagname" class="anchor" href="#getelementsbytagname"><span class="octicon octicon-link"></span></a>getElementsByTagName</h5>
+
+<p>This gets many elements from the page, for example:</p>
+
+<div class="highlight highlight-JavaScript"><pre><span class="nb">document</span><span class="p">.</span><span class="nx">getElementByTagName</span><span class="p">(</span><span class="s1">'p'</span><span class="p">);</span>
+</pre></div>
+
+<p>gets the same elements as the CSS:</p>
+
+<div class="highlight highlight-CSS"><pre><span class="nt">p</span> <span class="p">{}</span>
+</pre></div>
+
+<h5>
+<a name="chaining-methods" class="anchor" href="#chaining-methods"><span class="octicon octicon-link"></span></a>chaining methods</h5>
+
+<p>Because these methods can be called on any node object (an HTML element) you can chain them together.</p>
+
+<p>The JavaScript</p>
+
+<div class="highlight highlight-JavaScript"><pre><span class="nx">docuemnt</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'about'</span><span class="p">).</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">'p'</span><span class="p">);</span>
+</pre></div>
+
+<p>gets the same elements as the CSS:</p>
+
+<div class="highlight highlight-CSS"><pre><span class="nf">#about</span> <span class="nt">p</span> <span class="p">{}</span>
+</pre></div>
+
+<p>This would be all <code>&lt;p&gt;</code> elements inside the element with the id "about".</p>
+
+<h4>
+<a name="node-properties" class="anchor" href="#node-properties"><span class="octicon octicon-link"></span></a>Node properties</h4>
+
+<h5>
+<a name="parentnode" class="anchor" href="#parentnode"><span class="octicon octicon-link"></span></a>ParentNode</h5>
+
+<p>This lets us access the object that contains our currently selected element, for example if we had a <code>&lt;div&gt;</code> with three <code>&lt;p&gt;</code> tags inside it, if we selected any of the <code>&lt;p&gt;</code> tags and used '.parentNode', it would return the <code>&lt;div&gt;</code>.</p>
+
+<h5>
+<a name="childnodesfirstchildlastchild" class="anchor" href="#childnodesfirstchildlastchild"><span class="octicon octicon-link"></span></a>childNodes/firstChild/lastChild</h5>
+
+<p>Just as we can go up the DOM, we can also use the methods named above to go down it.</p>
+
+<p>If we had a <code>&lt;p&gt;</code> element which contained 3 <code>&lt;span&gt;</code> elements, 'childNodes' would get all the <code>&lt;span&gt;</code>s in an array, while firstChild would get the first one and lastChild the last one.</p>
+
+<h5>
+<a name="nextsiblingprevioussibling" class="anchor" href="#nextsiblingprevioussibling"><span class="octicon octicon-link"></span></a>nextSibling/previousSibling</h5>
+
+<p>These methods let us access elements on the same level of the DOM as the currently selected one, so as in the previous example if we selected the firstChild element, nextSibling would get the second <code>&lt;span&gt;</code>.</p>
+
+<h3>
+<a name="execution-order-and-the-dom" class="anchor" href="#execution-order-and-the-dom"><span class="octicon octicon-link"></span></a>Execution Order and the DOM</h3>
+
+<p>One problem you may encounter is that if we put JS in the <code>&lt;head&gt;</code> of our page, the DOM won't have been created yet, and so any references to it won't work. One way around this is to put all JS in the head of the page into a function, which gets called at the end of the page, once the DOM has loaded, see the example below.</p>
+
+<div class="highlight highlight-HTML"><pre><span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    ...
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"stuff.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    ...  <span class="c">&lt;!--No DOM nodes exist yet...--&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"wrapper"</span><span class="nt">&gt;</span> <span class="c">&lt;!--nodes are created --&gt;</span>
+    ...
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+      <span class="nx">initialize</span><span class="p">();</span> <span class="c">&lt;!--</span><span class="nx">now</span> <span class="nx">we</span> <span class="nx">access</span> <span class="nx">and</span> <span class="nx">manipulate</span> <span class="nx">the</span> <span class="nx">DOM</span><span class="o">--&gt;</span>
+    <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+
+<h3>
+<a name="events" class="anchor" href="#events"><span class="octicon octicon-link"></span></a>Events</h3>
+
+<p>These allow us to perform certain behaviour based on certain actions occurring on particular elements or the page, some examples are:</p>
+
+<ul>
+<li>click</li>
+<li>mouseover</li>
+<li>mouseout</li>
+<li>mousedown</li>
+<li>mouseup</li>
+<li>blur</li>
+<li>focus</li>
+<li>load</li>
+</ul><p>We use events by attaching a <strong>listener</strong> to an element, which listens for that action to occur.</p>
+
+<div class="highlight highlight-JavaScript"><pre><span class="kd">var</span> <span class="nx">el</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'test'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">doSomething</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">//Do something!</span>
+<span class="p">};</span>
+
+<span class="c1">//For internet explorer, we attach by doing</span>
+<span class="nx">el</span><span class="p">.</span><span class="nx">attachEvent</span><span class="p">(</span><span class="s1">'onclick'</span><span class="p">,</span> <span class="nx">doSomething</span><span class="p">);</span>
+
+<span class="c1">//For literally every other browser, we do:</span>
+<span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="nx">doSomething</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+</pre></div>
+
+<p>STOPPED AT 12:55 <a href="https://www.youtube.com/watch?v=hdEn3P3ZbiY&amp;list=PL697D36B35F92E9E4&amp;index=7">https://www.youtube.com/watch?v=hdEn3P3ZbiY&amp;list=PL697D36B35F92E9E4&amp;index=7</a></p>
       </section>
     </div>
 
