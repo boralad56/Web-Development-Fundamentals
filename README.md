@@ -27,8 +27,6 @@
     - [Declarations (what we want to change)](#declarations-what-we-want-to-change)
   - [CSS Walkthrough and Exercise](#css-walkthrough-and-exercise)
   - [Javascript](#javascript)
-- [about {}](#about-)
-- [about p {}](#about-p-)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -233,7 +231,7 @@ There are 3 possible options, from worst to best.
 1. Inline CSS (Bad, don't ever do this) - 
   ```HTML
   <body>
-  <h1 style="color: red;">Hello</h1>
+    <h1 style="color: red;">Hello</h1>
   <body>
   ```
   Using the style attribute on an element, you can change the a particular element, but you're mixing your content and style, and also means you have to do this for each element you want to style. *Even control-c, control-v gets boring after a while*
@@ -333,8 +331,8 @@ The shorthand used above must happen in that particular order, so if you can't r
 
 Using granularity, we can change specific parts of an element's style
 ```CSS
-p { border: 1px solid red; }
-p.intro { border-color: blue; }
+  p { border: 1px solid red; }
+  p.intro { border-color: blue; }
 ```
 This gives us a `<p>` with a 1px solid red border, but all `<p class="intro">` have a blue border.
 
@@ -359,9 +357,9 @@ Relative units such as `em` and `%` are calculated relative to other characteris
 
 For example
 ```CSS
-body { font-size: 12px; }
-h1 { font-size: 200%; }
-h1 a { font-size: 75%; }
+  body { font-size: 12px; }
+  h1 { font-size: 200%; }
+  h1 a { font-size: 75%; }
 ```
 This sets body's font size to 12 pixels, the h1 header's font size to twice body's font-size, giving us 24 pixels, and all links inside h1 to 75% of h1's font size, giving 18 pixels.
 
@@ -532,49 +530,49 @@ Like CSS, there are a few different methods and we'll cover them from the easies
 
 1. Inline JavaScript(Bad)
 ```HTML
-<html>
-  <head>
-    ...
-  </head>
-  <body>
-    ...
-    <a href="javascript: doSomething()">test1</a>
-    <a href="#" onclick="doSomething()">test2</a>
-    ...
-  </body>
-</html>
+  <html>
+    <head>
+      ...
+    </head>
+    <body>
+      ...
+      <a href="javascript: doSomething()">test1</a>
+      <a href="#" onclick="doSomething()">test2</a>
+      ...
+    </body>
+  </html>
 ```
 Here we've added in some javascript that will execute when a user clicks on either of these links, but it's a __bad idea__ since it breaks the separation of content, style and behaviour.
 
 2. Embedded JavaScript(Better)
 ```HTML
-<html>
-  <head>
-    ...
-  </head>
-  <body>
-    ...
-    <script type="text/javascript">
-      doSomething();
-    </script>
-    ...
-  </body>
-</html>
+  <html>
+    <head>
+      ...
+    </head>
+    <body>
+      ...
+      <script type="text/javascript">
+        doSomething();
+      </script>
+      ...
+    </body>
+  </html>
 ```
 This has embedded some JS into the HTML by adding it into the script tag, this allows you to keep all your JS in one place in your HTML file. It's better, but still not great.
 
 3. External JavaScript(Best of all!)
 ```HTML
-<html>
-  <head>
-    ...
-  </head>
-  <body>
-    ...
-    <script type="text/javascript" src="stuff.js"></script>
-    ...
-  </body>
-</html>
+  <html>
+    <head>
+      ...
+    </head>
+    <body>
+      ...
+      <script type="text/javascript" src="stuff.js"></script>
+      ...
+    </body>
+  </html>
 ```
 This is the best option as it keeps your HTML and JS separate, and allows you to reuse one JS file for all pages on a web site.
 
@@ -591,48 +589,48 @@ The goal of this section isn't to teach you how to program, instead we'll cover 
 ###Fundamentals
 Like all programming languages, JS has variables e.g. assigning 7 to the variable foo:
 ```JavaScript
-var foo = 7;
+  var foo = 7;
 ```
 
 Operators can be used to do calculations:
 ```JavaScript
-var bar = 4 + (3 * 2);
+  var bar = 4 + (3 * 2);
 ```
 
 Strings are used to store text:
 ```JavaScript
-var baz = 'a string';
+  var baz = 'a string';
 ```
 
 Arrays are used to store multiple values:
 ```JavaScript
-var arr = [1, 2, 3];
+  var arr = [1, 2, 3];
 ```
 
 Functions are defined like so:
 ```JavaScript
-var function = function(x, y) {//Do something};
+  var function = function(x, y) {//Do something};
 ```
 
 Conditional statements are used to control what happens in a program:
 ```JavaScript
-if (something) {
+  if (something) {
     //Do something
-}
+  }
 ```
 
 Loops are used to execute blocks of code multiple times:
 ```JavaScript
-while (something) {//Do this}
-for (var i=0; i<10; i++) {//Do this}
+  while (something) {//Do this}
+  for (var i=0; i<10; i++) {//Do this}
 ```
 
 JS is also what's known as Object Oriented, this means you can create a new object, assign it to a variable and give that object properties and methods.
 ```JavaScript
-var o = {}; //Create an object
+  var o = {}; //Create an object
 
-o.isUpdated = false; //Property, a variable stuck to an object
-o.updateNow(someData); //Method, a function stuck to an object
+  o.isUpdated = false; //Property, a variable stuck to an object
+  o.updateNow(someData); //Method, a function stuck to an object
 ```
 
 
@@ -641,15 +639,15 @@ JS interacts with web pages through the Document Object Model (DOM). This is a t
 
 An HTML page of:
 ```HTML
-<html>
-  <body>
-    <p id="first"></p>
-    <p id="second">
-      <strong></strong>
-    </p>
-    <p id="third"></p>
-  </body>
-</html>
+  <html>
+    <body>
+      <p id="first"></p>
+      <p id="second">
+        <strong></strong>
+      </p>
+      <p id="third"></p>
+    </body>
+  </html>
 ```
 
 Would give a DOM of:
@@ -675,21 +673,21 @@ These objects are the handles that JS uses to modify the page.
 This function gets a specific element by it's ID, hence the name.
 For example:
 ```JavaScript
-document.getElementById('about');
+  document.getElementById('about');
 ```
 would get the same element as the CSS:
 ```CSS
-#about {}
+  #about {}
 ```
 
 #####getElementsByTagName
 This gets many elements from the page, for example:
 ```JavaScript
-document.getElementByTagName('p');
+  document.getElementByTagName('p');
 ```
 gets the same elements as the CSS:
 ```CSS
-p {}
+  p {}
 ```
 
 #####chaining methods
@@ -697,11 +695,11 @@ Because these methods can be called on any node object (an HTML element) you can
 
 The JavaScript
 ```JavaScript
-docuemnt.getElementById('about').getElementsByTagName('p');
+  docuemnt.getElementById('about').getElementsByTagName('p');
 ```
 gets the same elements as the CSS:
 ```CSS
-#about p {}
+  #about p {}
 ```
 
 This would be all `<p>` elements inside the element with the id "about".
