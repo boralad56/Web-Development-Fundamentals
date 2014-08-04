@@ -482,5 +482,253 @@ From here you need to follow the steps in the comments in the file:
 3. Hide the second list
 4. Add padding, margin and background colour as needed.
 
-__Don't panic if you get stuck, it may be best to work together with 1 or 2 other people on this part. Take 10-15 minutes on your own to get it as close as you can.__
+__Don't panic if you get stuck, it may be best to work together with 1 or 2 other people on this part. Take 10-15 minutes on your own to get it as close as you can. Use Google if you need to look up how to do certain things__
+
+
+
+Javascript
+----------------------------
+Now we've made it to the Javascript portion of the tutorial.
+
+###What's it for?
+JS makes pages interactive, such as hiding or showing a menu, validating form inputs and even drag and drop objects!
+
+###How do I use it?
+Like CSS, there are a few different methods and we'll cover them from the easiest option to the best one.
+
+1. Inline JavaScript(Bad)
+```HTML
+<html>
+  <head>
+    ...
+  </head>
+  <body>
+    ...
+    <a href="javascript: doSomething()">test1</a>
+    <a href="#" onclick="doSomething()">test2</a>
+    ...
+  </body>
+</html>
+```
+Here we've added in some javascript that will execute when a user clicks on either of these links, but it's a __bad idea__ since it breaks the separation of content, style and behaviour.
+
+2. Embedded JavaScript(Better)
+```HTML
+<html>
+  <head>
+    ...
+  </head>
+  <body>
+    ...
+    <script type="text/javascript">
+      doSomething();
+    </script>
+    ...
+  </body>
+</html>
+```
+This has embedded some JS into the HTML by adding it into the script tag, this allows you to keep all your JS in one place in your HTML file. It's better, but still not great.
+
+3. External JavaScript(Best of all!)
+```HTML
+<html>
+  <head>
+    ...
+  </head>
+  <body>
+    ...
+    <script type="text/javascript" src="stuff.js"></script>
+    ...
+  </body>
+</html>
+```
+This is the best option as it keeps your HTML and JS separate, and allows you to reuse one JS file for all pages on a web site.
+
+
+###What can we do?
+JavaScript is a programming language, so it allows you to do quite a lot! 
+JS has become very popular in the past few years, with people making all kinds of cool libraries from data visualisation libraries like [d3](http://d3js.org/) and [highcharts](http://www.highcharts.com/) to running [game engines in the browser](http://html5gameengine.com/).
+
+A common mistake made by people is thinking that JavaScript is similar to Java, _it's not_. Apart from a few syntactic similarities, they're very different.
+
+The goal of this section isn't to teach you how to program, instead we'll cover best practices of how JS should be used. If you find the next few parts confusing, it'll get easier once you see how the JS affects interaction with the page.
+
+
+###Fundamentals
+Like all programming languages, JS has variables e.g. assigning 7 to the variable foo:
+```JavaScript
+var foo = 7;
+```
+
+Operators can be used to do calculations:
+```JavaScript
+var bar = 4 + (3 * 2);
+```
+
+Strings are used to store text:
+```JavaScript
+var baz = 'a string';
+```
+
+Arrays are used to store multiple values:
+```JavaScript
+var arr = [1, 2, 3];
+```
+
+Functions are defined like so:
+```JavaScript
+var function = function(x, y) {//Do something};
+```
+
+Conditional statements are used to control what happens in a program:
+```JavaScript
+if (something) {
+    //Do something
+}
+```
+
+Loops are used to execute blocks of code multiple times:
+```JavaScript
+while (something) {//Do this}
+for (var i=0; i<10; i++) {//Do this}
+```
+
+JS is also what's known as Object Oriented, this means you can create a new object, assign it to a variable and give that object properties and methods.
+```JavaScript
+var o = {}; //Create an object
+
+o.isUpdated = false; //Property, a variable stuck to an object
+o.updateNow(someData); //Method, a function stuck to an object
+```
+
+
+###How does it interact with the page?
+JS interacts with web pages through the Document Object Model (DOM). This is a tree of objects that matches the tree of elements in HTML.
+
+An HTML page of:
+```HTML
+<html>
+  <body>
+    <p id="first"></p>
+    <p id="second">
+      <strong></strong>
+    </p>
+    <p id="third"></p>
+  </body>
+</html>
+```
+
+Would give a DOM of:
+_window
+ \- document
+    | p #first
+    | p #second
+      \- strong
+    \- p #third_
+
+These objects are the handles that JS uses to modify the page.
+
+
+####DOM terminology
+|HTML|JavaScript|
+|----|----------|
+|element|node|
+|attribute|property|
+
+
+####Selecting elements
+#####getElementById
+This function gets a specific element by it's ID, hence the name.
+For example:
+```JavaScript
+document.getElementById('about');
+```
+would get the same element as the CSS:
+```CSS
+#about {}
+```
+
+#####getElementsByTagName
+This gets many elements from the page, for example:
+```JavaScript
+document.getElementByTagName('p');
+```
+gets the same elements as the CSS:
+```CSS
+p {}
+```
+
+#####chaining methods
+Because these methods can be called on any node object (an HTML element) you can chain them together.
+
+The JavaScript
+```JavaScript
+docuemnt.getElementById('about').getElementsByTagName('p');
+```
+gets the same elements as the CSS:
+```CSS
+#about p {}
+```
+
+This would be all `<p>` elements inside the element with the id "about".
+
+####Node properties
+#####ParentNode
+This lets us access the object that contains our currently selected element, for example if we had a `<div>` with three `<p>` tags inside it, if we selected any of the `<p>` tags and used '.parentNode', it would return the `<div>`.
+
+#####childNodes/firstChild/lastChild
+Just as we can go up the DOM, we can also use the methods named above to go down it.
+
+If we had a `<p>` element which contained 3 `<span>` elements, 'childNodes' would get all the `<span>`s in an array, while firstChild would get the first one and lastChild the last one.
+
+#####nextSibling/previousSibling
+These methods let us access elements on the same level of the DOM as the currently selected one, so as in the previous example if we selected the firstChild element, nextSibling would get the second `<span>`.
+
+
+###Execution Order and the DOM
+One problem you may encounter is that if we put JS in the `<head>` of our page, the DOM won't have been created yet, and so any references to it won't work. One way around this is to put all JS in the head of the page into a function, which gets called at the end of the page, once the DOM has loaded, see the example below.
+
+```HTML
+<html>
+  <head>
+    ...
+    <script type="text/javascript" src="stuff.js"></script>
+    ...  <!--No DOM nodes exist yet...-->
+  </head>
+  <body>
+    <div id="wrapper"> <!--nodes are created -->
+    ...
+    <script type="text/javascript">
+      initialize(); <!--now we access and manipulate the DOM-->
+    </script>
+  </body>
+</html>
+```
+
+
+
+###Events
+These allow us to perform certain behaviour based on certain actions occurring on particular elements or the page, some examples are:
+* click
+* mouseover
+* mouseout
+* mousedown
+* mouseup
+* blur
+* focus
+* load
+
+We use events by attaching a __listener__ to an element, which listens for that action to occur.
+```JavaScript
+var el = document.getElementById('test');
+var doSomething = function() {
+    //Do something!
+};
+
+//For internet explorer, we attach by doing
+el.attachEvent('onclick', doSomething);
+
+//For literally every other browser, we do:
+el.addEventListener('click', doSomething, false);
+```
 
