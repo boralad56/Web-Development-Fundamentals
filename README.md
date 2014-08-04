@@ -1,3 +1,41 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
+
+- [Web-Development-Fundamentals](#web-development-fundamentals)
+  - [Introduction](#introduction)
+    - [Why?](#why)
+    - [Recap](#recap)
+  - [HTML](#html)
+    - [What does it look like?](#what-does-it-look-like)
+    - [Header](#header)
+    - [Headers](#headers)
+- [Header](#header-1)
+  - [Header](#header-2)
+    - [Paragraphs](#paragraphs)
+    - [Lists](#lists)
+      - [Ordered Lists](#ordered-lists)
+      - [Unordered Lists](#unordered-lists)
+    - [Emphasized text](#emphasized-text)
+    - [Bold text](#bold-text)
+    - [Tables](#tables)
+    - [Doctype](#doctype)
+    - [Recap](#recap-1)
+  - [HTML Exercise](#html-exercise)
+  - [CSS](#css)
+    - [How do we get it into my web page?](#how-do-we-get-it-into-my-web-page)
+- [Hello](#hello)
+    - [How does it work?](#how-does-it-work)
+    - [Selectors (thing before the curly braces)](#selectors-thing-before-the-curly-braces)
+      - [Things to watch out for with id's and classes](#things-to-watch-out-for-with-ids-and-classes)
+    - [Declarations (what we want to change)](#declarations-what-we-want-to-change)
+  - [CSS Walkthrough and Exercise](#css-walkthrough-and-exercise)
+  - [Javascript](#javascript)
+- [about {}](#about-)
+- [about p {}](#about-p-)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 Web-Development-Fundamentals
 ============================
 
@@ -732,3 +770,4 @@ el.attachEvent('onclick', doSomething);
 el.addEventListener('click', doSomething, false);
 ```
 
+STOPPED AT 12:55 https://www.youtube.com/watch?v=hdEn3P3ZbiY&list=PL697D36B35F92E9E4&index=7
