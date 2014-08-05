@@ -520,7 +520,7 @@ __Don't panic if you get stuck, it may be best to work together with 1 or 2 othe
 
 Javascript
 ----------------------------
-Now we've made it to the Javascript portion of the tutorial.
+Now we've made it to the JavaScript portion of the tutorial.
 
 ###What's it for?
 JS makes pages interactive, such as hiding or showing a menu, validating form inputs and even drag and drop objects!
@@ -764,4 +764,190 @@ el.attachEvent('onclick', doSomething);
 el.addEventListener('click', doSomething, false);
 ```
 
-STOPPED AT 12:55 https://www.youtube.com/watch?v=hdEn3P3ZbiY&list=PL697D36B35F92E9E4&index=7
+####A quick aside about detecting browsers
+If we want to detect what browser the person viewing your site is using, we could do it the following way:
+```JavaScript
+if (navigator.appName == "IE") {
+    el.someIEMethod();
+}
+```
+
+The problem with doing detection this way is that if, in some future version of IE, Microsoft decide to follow the same standard as everyone else (like they really should do already!), then this bit of code will stop working, as IE won't support someIEMethod any more.
+
+A better way to do this would be to do the following:
+```JavaScript
+if (el.someIEMethod) {
+    el.someIEMethod();
+}
+```
+This will check if the method is supported before using it, and also covers us in the rare eventuality that other browsers start supporting the methods IE uses.
+
+
+###What can we do with event listeners?
+As we've seen, JS allows us to execute code on different actions, for example:
+* hide the element -
+  ```JavaScript
+    var hide = function() {
+        this.style.display = 'none';
+    }
+    ```
+
+* change the colour (if there's an error for example):
+  ```JavaScript
+    var makeError = function() {
+        this.style.color = '#f00';
+    }
+    ```
+
+* change the font and background (for those with visual impairments):
+  ```JavaScript
+    var makeBigAndHightlight = function() {
+        this.style.fontSize = '2em';
+        this.style.backgroundColor = '#f00';
+    }
+    ```
+
+You might notice that these are all references to CSS properties for elements, this is because all properties available to CSS can also be changed by JavaScript code, the only difference in naming is that __for CSS the name might be 'background-color' but in JS this is backgroundColor.__
+
+You'll also notice that all the code examples above make reference to 'this', this is a keyword that allows you to refer to the element the JS is being executed on.
+
+
+###Separation of style and behaviour
+Those of you who remember what we covered in the introduction will remember that it's best to keep our content, style and behaviour all separate, but the code examples above don't do this.
+
+One way we can get around this is to define the changes we want made in the CSS on certain class names, and then add these classes to the element.
+
+For example:
+* hide the element -
+  ```CSS
+    .inactive {
+        display: none;
+    }
+  ```
+  ```JavaScript
+    var makeInactive = function() {
+        this.className = 'inactive';
+    }
+  ```
+
+* change the colour -
+  ```CSS
+    .error {
+      color: #f00;
+    }
+  ```
+  ```JavaScript
+    var makeError = function() {
+        this.className = 'error';
+    }
+  ```
+
+* change the size and background -
+  ```CSS
+    .large {
+        font-size: 2em;
+    }
+    .special {
+        background-color: #f00;
+    }
+  ```
+  ```JavaScript
+    var makeLargeAndSpecial = function() {
+        this.className = 'large special';
+    }
+    ```
+
+
+####What if they already have class names?
+If we aren't careful with replacing element's class names, we could really mess up the look of our page, as doing this will remove all other classes that element had previously.
+
+What we need are functions to add or remove a class, not replace it and a function to check if an element has a class name. These (unfortunately) aren't built in to JS by default, but are added by most libraries such as [jQuery](http://api.jquery.com/addClass/).
+
+
+###Altering default events
+So when going through the CSS section, we learned that browsers have their own default CSS styles that they use unless we provide our own. Browsers also do the same thing for JavaScript, but just like with CSS we can change these defaults and provide our own.
+
+The code to do this is
+```JavaScript
+  var listener = function(e) {
+    e.preventDefault(); //stops default behaviour
+  }
+```
+
+
+###Recap
+From this section we've learned how we can define our own behaviours based on user interaction with our web page, and how to properly separate it from our content and style.
+
+Like CSS, the best way to learn JS is to get your hands dirty, so lets move onto the exercise.
+
+
+
+JavaScript exercise
+----------------------------
+For this exercise we're going to use the techniques we've learned about so far to make an example page interactive.
+
+So, just like before, first you'll need to download the exercise file from [here.](https://raw.githubusercontent.com/AndrewSpeed/Web-Development-Fundamentals/master/exercises/javascript-exercise-unfinished.html)
+
+For this exercise you'll also need to copy [this file](https://raw.githubusercontent.com/AndrewSpeed/Web-Development-Fundamentals/master/exercises/expandos.css) into a file named __expandos.css__ and [this file](https://raw.githubusercontent.com/AndrewSpeed/Web-Development-Fundamentals/master/exercises/utility.js) into __utility.js__.
+
+Now load up the html file in your browser and we'll get started.
+
+So the behaviour we want to have for this exercise is similar to that of the demo site we saw at the beginning of the tutorial, namely that if we click on the header of one of the lists, it contracts or expands depending on it's current state.
+
+This might seem overwhelming at first, but the best way to tackle any coding problem is to break it up into smaller pieces, and work on each of these.
+
+1. Towards the bottom of the file you'll see a for loop like the one below, inside the loop I want you to add the code `alert(expando)`, this will make a dialogue box appear for each expando element in the page.
+  ```JavaScript
+    for (var i = 0; i < expandos.length; i++) {
+      var expando = expandos[i];
+      alert(expando)
+    }
+  ```
+
+  Save that and refresh the page, and you should now get 3 alerts, one for each of our lists.
+
+2. Now, we don't want this happening for our page, so take the alert out and add an event listener to each of the expando elements that will call the function `toggleExpando()` when they are clicked. Now add `alert(this);` into the `toggleExpando()` function.
+
+  If you refresh this, and click on any of the lists, you'll now get an alert. The problem with this is that we don't want the lists toggling if we click on them, just their headers.
+
+3. Take a look at the HTML and back through our JS section, are there any functions to get one or more elements by their tag?
+
+  Once you think you have an answer, above our event listener create a variable h2 and set it to `expando.functionYouChose()[0];`, then change the event listener to be added to h2 instead of expando. The `[0]` is used to get the first element of an array of items (hint, hint).
+
+  The correct choice of function will give us an alert only when we click on the headers of the lists. Don't be afraid of trial and error, that's one of the best ways to learn!
+
+4. Let's change the effect of tggleExpando now, change this to hide the element the event listener is attached to and see what it's effect is.
+
+5. Clicking on headers now should remove them, but the list is still there! What we want to hide is the list, not the header itself. If we can get a reference to the __element that contains the h2__ then we could use the same function you chose in step 3 to get the list.
+
+6. Now that we have the hide working, we want it to make the list appear if it's already hidden. Before we can do that though, we need to make sure that the list will always appear on the page load, what if a browser decides to hide lists by default?
+
+  To do this, add the 'wd-expando-on' class to our expando inside that for loop we looked at earlier, like the code below.
+  ```JavaScript
+    for (var i = 0; i < expandos.length; i++) {
+      var expando = expandos[i];
+      addClass(expando, 'wd-expando-on');
+      var h2 = expando.functionYouChose()[0];
+      addEvent(h2, 'someEvent', toggleExpando);
+    }
+    ```
+
+  We need to access the expando inside toggleExpando now, don't forget that inside it 'this' refers to the header, is there a way to get the element that contains another one? Assign it to a variable once you work out how to get it.
+
+  So, how are we going to check if the expando is hidden or not? If only we could somehow check if it had a class. Maybe you should check the functions available in utility.js...
+
+  Once you've found out how to do that, we'll need to check __if__ the expando has that class, and if it does __remove__ the 'on' class to it and __add__ the 'off' one or __else__ we'll have to do the opposite.
+
+
+Congratulations, you've been able to hide the lists, just like we wanted. If you've done it correctly, you'll be able to change the CSS of the 'on' and 'off' classes, and you'll get different effects without having to change the JS at all!
+
+
+
+Conclusion
+----------------------------
+
+Congratulations! You've made it through the tutorial! You've now had hands on experience with all 3 of our web technologies. What we've covered here are just the basics there's a whole lot more material, far more than we could have covered.
+
+The best way to learn about this is to go out, see what's out there and try it out. Come up with projects for yourself and see what you can come up with.
+
+Some of the most impressive stuff out there at the moment are the JavaScript libraries available for everything from graphs to making JavaScript easier to write (no more semi-colons or curly braces!).
