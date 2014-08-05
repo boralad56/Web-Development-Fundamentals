@@ -27,6 +27,30 @@
     - [Declarations (what we want to change)](#declarations-what-we-want-to-change)
   - [CSS Walkthrough and Exercise](#css-walkthrough-and-exercise)
   - [Javascript](#javascript)
+    - [What's it for?](#What's it for?)
+    - [How do I use it?](#How do I use it?)
+    - [What can we do?](#What can we do?)
+    - [Fundamentals](#Fundamentals)
+    - [How does it interact with the page?](#How does it interact with the page?)
+      - [DOM terminology](#DOM terminology)
+      - [Selecting elements](#Selecting elements)
+        - [getElementById](#getElementById)
+        - [getElementsByTagName](#getElementsByTagName)
+        - [chaining methods](#chaining methods)
+      - [Node properties](#Node properties)
+        - [ParentNode](#ParentNode)
+        - [childNodes/firstChild/lastChild](#childNodes/firstChild/lastChild)
+        - [nextSibling/previousSibling](#nextSibling/previousSibling)
+    - [Execution Order and the DOM](#Execution Order and the DOM)
+    - [Events](#Events)
+      - [A quick aside about detecting browsers](#A quick aside about detecting browsers)
+    - [What can we do with event listeners?](#What can we do with event listeners?)
+    - [Separation of style and behaviour](#Separation of style and behaviour)
+      - [What if they already have class names?](#What if they already have class names?)
+    - [Altering default events](#Altering default events)
+    - [Recap](#Recap)
+  - [JavaScript exercise](#javascript-exercise)
+  - [Conclusion](#conclusion)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -520,6 +544,7 @@ __Don't panic if you get stuck, it may be best to work together with 1 or 2 othe
 
 Javascript
 ----------------------------
+
 Now we've made it to the JavaScript portion of the tutorial.
 
 ###What's it for?
